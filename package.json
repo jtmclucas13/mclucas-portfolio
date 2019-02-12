@@ -37,8 +37,9 @@
         }
     },
     "lint-staged": {
-        "*.{js,json,css,md}": [
-            "prettier --write",
+        "*.{js,css}": [
+            "npm run prettify",
+            "npm run lint",
             "git add"
         ]
     },
