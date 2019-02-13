@@ -5,17 +5,21 @@
     "version": "0.1.0",
     "author": "Joshua McLucas <jtmclucas13@gmail.com>",
     "dependencies": {
+        "classnames": "^2.2.6",
         "gatsby": "^2.0.118",
         "gatsby-image": "^2.0.29",
         "gatsby-plugin-manifest": "^2.0.17",
         "gatsby-plugin-offline": "^2.0.23",
         "gatsby-plugin-react-helmet": "^3.0.6",
+        "gatsby-plugin-sass": "^2.0.10",
         "gatsby-plugin-sharp": "^2.0.20",
         "gatsby-source-filesystem": "^2.0.20",
         "gatsby-transformer-sharp": "^2.1.13",
+        "node-sass": "^4.11.0",
         "prop-types": "^15.7.1",
         "react": "^16.8.0",
         "react-dom": "^16.8.0",
+        "react-hamburger-menu": "^1.1.1",
         "react-helmet": "^5.2.0"
     },
     "keywords": [
@@ -25,10 +29,11 @@
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
-        "lint": "eslint src/**/*.js && stylelint src/**/*.css",
+        "lint": "eslint src/**/*.js",
         "prettify": "prettier --config .prettierrc --write src/**/*.js",
         "start": "npm run develop",
         "serve": "gatsby serve",
+        "stylelint": "stylelint src/**/*.css",
         "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
     },
     "husky": {
@@ -37,9 +42,13 @@
         }
     },
     "lint-staged": {
-        "*.{js,css}": [
+        "*.{js}": [
             "npm run prettify",
             "npm run lint",
+            "git add"
+        ],
+        "*.{css}": [
+            "npm run stylelint",
             "git add"
         ]
     },
