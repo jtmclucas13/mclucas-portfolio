@@ -5,10 +5,15 @@ $purple-50: #59237b;
 $purple-60: #461b61;
 $purple-70: #3c1853;
 
+$yellow-50: #e0ce34;
+
 $grey-40: #f0f0f0;
 $grey-50: #D6D6D6;
 
+/* stylelint-disable property-no-unknown, selector-pseudo-class-no-unknown */
 :export {
     grey50: $grey-50;
     purple50: $purple-50;
+    yellow50: $yellow-50;
 }
+/* stylelint-enable */

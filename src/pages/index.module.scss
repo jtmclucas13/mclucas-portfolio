@@ -1,0 +1,32 @@
+@import "../styles/variables.scss";
+
+.heroImageContainer {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $buried-z;
+}
+
+.heroImage {
+    height: 100%;
+    width: 100%;
+}
+
+.heroHeader {
+    color: $grey-40;
+    font-size: 5rem;
+}
+
+.heroSubheader {
+    color: $grey-40;
+    font-size: 3.3rem;
+    margin: 2rem 0;
+}
+
+.heroBody {
+    color: $grey-40;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}

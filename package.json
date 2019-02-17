@@ -37,7 +37,7 @@
         "prettify": "prettier --config .prettierrc --write src/**/*.js",
         "start": "npm run develop",
         "serve": "gatsby serve",
-        "stylelint": "stylelint src/**/*.css",
+        "stylelint": "stylelint src/**/*.{css,scss}",
         "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
     },
     "husky": {
@@ -51,7 +51,7 @@
             "npm run lint",
             "git add"
         ],
-        "*.{css}": [
+        "*.{css,scss}": [
             "npm run stylelint",
             "git add"
         ]

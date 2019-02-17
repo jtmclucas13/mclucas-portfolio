@@ -25,10 +25,11 @@ const ImageQuery = graphql`
     }
 `;
 
-const Image = () => {
+const Image = ({ className }) => {
     const data = useStaticQuery(ImageQuery);
     return (
         <Img
+            className={className}
             critical={true}
             fluid={data.placeholderImage.childImageSharp.fluid}
             alt="Joshua McLucas headshot"
