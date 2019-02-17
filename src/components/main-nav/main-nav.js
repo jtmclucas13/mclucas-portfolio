@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import HamburgerMenu from "react-hamburger-menu";
-import { Link } from "gatsby";
+import { useStaticQuery, Link, graphql } from "gatsby";
 import classnames from "classnames";
 
 import styles from "./main-nav.module.scss";
 import { grey50 } from "../../styles/_colors.scss";
 
-//JTM
-// - responsiveize
-// - put strings in config somewhere
-// - get links from graphql?
+const NavLinksQuery = graphql`
+    query NavLinksQuery {
+        site {
+            siteMetadata {
+                menuLinks {
+                    name
+                    link
+                }
+            }
+        }
+    }
+`;
+
 const MainNav = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const data = useStaticQuery(NavLinksQuery);
 
     function toggleIsOpen() {
         setIsOpen(!isOpen);
@@ -24,27 +34,23 @@ const MainNav = () => {
                 <div className={styles.navContainer}>
                     <nav>
                         <ul>
-                            <li>
-                                <Link
-                                    activeClassName={styles.activeLink}
-                                    className={styles.link}
-                                    to="/"
-                                >
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    activeClassName={styles.activeLink}
-                                    className={styles.link}
-                                    to="/web"
-                                >
-                                    Web
-                                </Link>
-                            </li>
+                            {data.site.siteMetadata.menuLinks.map(link => (
+                                <li>
+                                    <Link
+                                        activeClassName={styles.activeLink}
+                                        className={styles.link}
+                                        to={link.link}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                 </div>
+                <footer className={styles.navFooter}>
+                    © {new Date().getFullYear()}, Joshua McLucas
+                </footer>
             </div>
             <span className={styles.hamburger}>
                 <HamburgerMenu

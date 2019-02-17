@@ -76,3 +76,12 @@
 .activeLink {
     font-weight: bold;
 }
+
+.navFooter {
+    bottom: 0;
+    color: $grey-50;
+    margin: 0 10px 10px;
+    position: absolute;
+    text-align: center;
+    width: calc(100% - 10px);
+}

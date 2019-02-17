@@ -5,9 +5,33 @@ module.exports = {
             "The web home of Philadelphia-based theater artist and software engineer, Joshua McLucas.",
         author: "@jtmclucas13",
         siteUrl: "https://www.joshuamclucas.com",
+        menuLinks: [
+            {
+                name: "Home",
+                link: "/",
+            },
+            {
+                name: "Web",
+                link: "/web",
+            },
+            {
+                name: "Theater",
+                link: "/theater",
+            },
+            {
+                name: "Contact",
+                link: "/contact",
+            },
+        ],
     },
     plugins: [
         "gatsby-plugin-sass",
+        {
+            resolve: "gatsby-plugin-typography",
+            options: {
+                pathToConfigModule: "src/styles/typography.js",
+            },
+        },
         "gatsby-plugin-react-helmet",
         {
             resolve: "gatsby-source-filesystem",
