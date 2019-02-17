@@ -5,6 +5,7 @@ import styles from "./text-corner.module.scss";
 
 const TextCorner = ({ children }) => {
     //JTM pass in? what about resizes?
+    // - honestly, just store the whole damn thing here. this is a specific text-corner
 
     return (
         <div className={styles.container}>

@@ -3,9 +3,12 @@ $white: #ffffff;
 
 $purple-50: #59237b;
 $purple-60: #461b61;
+$purple-70: #3c1853;
 
+$grey-40: #f0f0f0;
 $grey-50: #D6D6D6;
 
 :export {
-    grey50: $grey-50;    
+    grey50: $grey-50;
+    purple50: $purple-50;
 }

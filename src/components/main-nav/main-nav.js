@@ -5,7 +5,7 @@ import classnames from "classnames";
 
 import strings from "../../static/strings.json";
 import styles from "./main-nav.module.scss";
-import { grey50 } from "../../styles/_colors.scss";
+import { grey50, purple50 } from "../../styles/_colors.scss";
 
 const NavLinksQuery = graphql`
     query NavLinksQuery {
@@ -57,7 +57,7 @@ const MainNav = () => {
                 <HamburgerMenu
                     isOpen={isOpen}
                     menuClicked={toggleIsOpen}
-                    color={grey50}
+                    color={isOpen ? grey50 : purple50}
                 />
             </span>
         </div>
