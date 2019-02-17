@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss";
+
+.container {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    &:after {
+        background-color: $black;
+        content: "";
+        height: 100%;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: rotate(-45deg);
+        transform-origin: 100% 0;
+        width: 500%;
+        z-index: -1; //JTM var
+    }
+}
+
+.cornerText {
+    bottom: 25px;
+    position: absolute;
+    right: 25px;
+    text-align: right;
+    width: 39%;
+}
