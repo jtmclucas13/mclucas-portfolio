@@ -1,19 +1,19 @@
 import Typography from "typography";
 import grandViewTheme from "typography-theme-grand-view";
 
-import { yellow50, purple50 } from "./_colors.scss";
+import { yellow70, purple50 } from "./_colors.scss";
 
 grandViewTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     a: {
         color: purple50,
-        textDecoration: 'none',
+        textDecoration: "none",
     },
-    'a:hover': {
+    "a:hover": {
         color: purple50,
-        textDecoration: 'underline',
+        textDecoration: "underline",
     },
-    'a.light': {
-        color: yellow50,
+    "a.light": {
+        color: yellow70,
     },
 });
 const typography = new Typography(grandViewTheme);

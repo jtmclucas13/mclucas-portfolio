@@ -14,19 +14,46 @@
     width: 100%;
 }
 
+.heroTextContainer {
+    background-color: $purple-50;
+    bottom: 0;
+    opacity: 0.7; //JTM probably use rgba b/c the text opacity needs to be 1
+    position: absolute;
+    width: 100%;
+
+    @include breakpoint(large) {
+        background: none;
+        opacity: 1;
+        right: 5%; //JTM gutter vars
+        text-align: center;
+        top: 25%;
+        width: auto;
+    }
+}
+
 .heroHeader {
-    color: $grey-40;
-    font-size: 5rem;
+    color: $grey-50;
+    font-size: 9rem;
+    margin-top: 0;
+
+    @include breakpoint(large) {
+        color: $purple-50;
+    }
 }
 
 .heroSubheader {
-    color: $grey-40;
-    font-size: 3.3rem;
-    margin: 2rem 0;
+    color: $grey-50;
+    font-size: 3rem;
+
+    @include breakpoint(large) {
+        color: $purple-50;
+    }
 }
 
 .heroBody {
-    color: $grey-40;
-    font-size: 1.8rem;
-    margin-bottom: 0;
+    bottom: 0;
+    font-size: 1.7rem;
+    position: absolute;
+    right: 50px;
+    text-align: right;
 }

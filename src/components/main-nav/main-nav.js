@@ -36,7 +36,7 @@ const MainNav = () => {
                     <nav>
                         <ul>
                             {data.site.siteMetadata.menuLinks.map(link => (
-                                <li>
+                                <li key={link.link}>
                                     <Link
                                         activeClassName={styles.activeLink}
                                         className={styles.link}
