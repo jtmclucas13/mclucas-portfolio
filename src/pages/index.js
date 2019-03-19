@@ -18,8 +18,10 @@ const IndexPage = () => (
             <Image className={styles.heroImage} />
         </div>
         <div className={styles.heroTextContainer}>
-            <h1 className={styles.heroHeader}>Hi!</h1>
-            <h2 className={styles.heroSubheader}>My name's Josh.</h2>
+            <div className={styles.headerContainer}>
+                <h1 className={styles.heroHeader}>Hi!</h1>
+                <h2 className={styles.heroSubheader}>My name's Josh.</h2>
+            </div>
             <p className={styles.heroBody}>
                 I make{" "}
                 <Link className="light" to="/web">
