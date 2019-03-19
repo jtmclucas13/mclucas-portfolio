@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Image from "../components/image";
-import TextCorner from "../components/text-corner/text-corner";
 
 import styles from "./index.module.scss";
 
@@ -21,22 +20,22 @@ const IndexPage = () => (
         <div className={styles.heroTextContainer}>
             <h1 className={styles.heroHeader}>Hi!</h1>
             <h2 className={styles.heroSubheader}>My name's Josh.</h2>
+            <p className={styles.heroBody}>
+                I make{" "}
+                <Link className="light" to="/web">
+                    websites
+                </Link>{" "}
+                and{" "}
+                <Link className="light" to="/">
+                    theater
+                </Link>
+                .<br /> Every now and then{" "}
+                <Link className="light" to="/blog">
+                    I write
+                </Link>{" "}
+                too.
+            </p>
         </div>
-        <p className={styles.heroBody}>
-            I make{" "}
-            <Link className="light" to="/web">
-                websites
-            </Link>{" "}
-            and{" "}
-            <Link className="light" to="/">
-                theater
-            </Link>
-            .<br /> Every now and then{" "}
-            <Link className="light" to="/blog">
-                I write
-            </Link>{" "}
-            too.
-        </p>
     </Layout>
 );
 

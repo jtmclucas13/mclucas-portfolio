@@ -1,6 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import MediaQuery from "react-responsive";
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -15,9 +16,16 @@ import Img from "gatsby-image";
 
 const ImageQuery = graphql`
     query {
-        placeholderImage: file(relativePath: { eq: "headshot-white.jpg" }) {
+        heroImage: file(relativePath: { eq: "headshot-white.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 2000) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        heroImageSmall: file(relativePath: { eq: "headshot-white-small.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 800) {
                     ...GatsbyImageSharpFluid
                 }
             }
@@ -25,15 +33,28 @@ const ImageQuery = graphql`
     }
 `;
 
+//JTM use same var for minWidth
 const Image = ({ className }) => {
     const data = useStaticQuery(ImageQuery);
     return (
-        <Img
-            className={className}
-            critical={true}
-            fluid={data.placeholderImage.childImageSharp.fluid}
-            alt="Joshua McLucas headshot"
-        />
+        <MediaQuery minWidth={900}>
+            {matches => {
+                let src = data.heroImageSmall.childImageSharp.fluid;
+
+                if (matches) {
+                    src = data.heroImage.childImageSharp.fluid;
+                }
+
+                return (
+                    <Img
+                        className={className}
+                        critical={true}
+                        fluid={src}
+                        alt="Joshua McLucas headshot"
+                    />
+                );
+            }}
+        </MediaQuery>
     );
 };
 

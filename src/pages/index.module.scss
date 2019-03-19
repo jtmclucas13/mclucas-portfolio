@@ -15,15 +15,12 @@
 }
 
 .heroTextContainer {
-    background-color: $purple-50;
-    bottom: 0;
-    opacity: 0.7; //JTM probably use rgba b/c the text opacity needs to be 1
+    height: 100%;
     position: absolute;
     width: 100%;
 
-    @include breakpoint(large) {
-        background: none;
-        opacity: 1;
+    @include breakpoint(medium) {
+        left: auto;
         right: 5%; //JTM gutter vars
         text-align: center;
         top: 25%;
@@ -32,28 +29,48 @@
 }
 
 .heroHeader {
-    color: $grey-50;
-    font-size: 9rem;
+    color: $purple-50;
+    font-size: 7rem;
     margin-top: 0;
+    padding-left: 5%;
 
-    @include breakpoint(large) {
-        color: $purple-50;
+    @include breakpoint(medium) {
+        font-size: 9rem;
+        padding-left: 0;
     }
 }
 
 .heroSubheader {
-    color: $grey-50;
-    font-size: 3rem;
+    color: $purple-50;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.6875rem; //JTM variable
+    padding-left: 5%;
 
-    @include breakpoint(large) {
-        color: $purple-50;
+    @include breakpoint(medium) {
+        font-size: 3rem;
+        padding-left: 0;
     }
 }
 
+
+//JTM left off here - need to apply conditional class to a.inverted
 .heroBody {
+    background: rgba($purple-50, 0.7);
     bottom: 0;
-    font-size: 1.7rem;
+    color: $grey-40;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    padding: 5%;
     position: absolute;
-    right: 50px;
-    text-align: right;
+    text-align: center;
+    width: 100%;
+
+    @include breakpoint(medium) {
+        background: none;
+        color: inherit;
+        font-size: 1.6rem;
+        padding: 0;
+        position: static;
+    }
 }
