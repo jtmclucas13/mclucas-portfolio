@@ -16,14 +16,14 @@ import MediaQuery from "react-responsive";
 
 const ImageQuery = graphql`
     query {
-        heroImage: file(relativePath: { eq: "headshot-white-2.jpg" }) {
+        heroImage: file(relativePath: { eq: "headshot-white.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 2000) {
                     ...GatsbyImageSharpFluid
                 }
             }
         }
-        heroImageSmall: file(relativePath: { eq: "headshot-white-small-2.jpg" }) {
+        heroImageSmall: file(relativePath: { eq: "headshot-white-small.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 800) {
                     ...GatsbyImageSharpFluid
