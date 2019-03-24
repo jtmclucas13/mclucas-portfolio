@@ -20,6 +20,7 @@
     width: 100%;
 
     @include breakpoint(small) {
+        height: 75%;
         left: auto;
         right: 5%; //JTM gutter vars
         text-align: center;

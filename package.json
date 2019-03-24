@@ -47,7 +47,7 @@
         }
     },
     "lint-staged": {
-        "*.{js}": [
+        "*.js": [
             "npm run prettify",
             "npm run lint",
             "git add"
@@ -69,6 +69,7 @@
         "lint-staged": "^8.1.3",
         "prettier": "^1.16.4",
         "stylelint": "^9.10.1",
-        "stylelint-config-recommended": "^2.1.0"
+        "stylelint-config-recommended": "^2.1.0",
+        "stylelint-scss": "^3.5.4"
     }
 }

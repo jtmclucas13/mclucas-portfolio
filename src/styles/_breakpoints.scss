@@ -1,10 +1,17 @@
+$tiny: 0px;
+$extra-small: 568px;
+$small: 768px;
+$medium: 900px;
+$large: 1025px;
+$extra-large: 1441px;
+
 $breakpoints: (
-    tiny: 0px,
-    extra-small: 568px,
-    small: 768px,
-    medium: 900px,
-    large: 1025px,
-    extra-large: 1441px
+    tiny: $tiny,
+    extra-small: $extra-small,
+    small: $small,
+    medium: $medium,
+    large: $large,
+    extra-large: $extra-large,
 );
 
 @mixin breakpoint($name) {
@@ -16,3 +23,14 @@ $breakpoints: (
         }
     }
 }
+
+/* stylelint-disable property-no-unknown, selector-pseudo-class-no-unknown */
+:export {
+    tiny: $tiny;
+    extraSmall: $extra-small;
+    small: $small;
+    medium: $medium;
+    large: $large;
+    extraLarge: $extra-large;
+}
+/* stylelint-enable */

@@ -1,5 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { small } from "../styles/_breakpoints.scss";
 import Img from "gatsby-image";
 import MediaQuery from "react-responsive";
 
@@ -33,11 +34,10 @@ const ImageQuery = graphql`
     }
 `;
 
-//JTM use same var for minWidth
 const Image = ({ className }) => {
     const data = useStaticQuery(ImageQuery);
     return (
-        <MediaQuery minWidth={768}>
+        <MediaQuery minWidth={small}>
             {matches => {
                 let src = data.heroImageSmall.childImageSharp.fluid;
 

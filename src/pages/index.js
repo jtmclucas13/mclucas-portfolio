@@ -7,10 +7,6 @@ import Image from "../components/image";
 
 import styles from "./index.module.scss";
 
-//JTM
-// - make text responsive
-// - make image responsive (it doesn't align on all sizes)
-
 const IndexPage = () => (
     <Layout>
         <SEO title="Home" keywords={["gatsby", "application", "react"]} />
