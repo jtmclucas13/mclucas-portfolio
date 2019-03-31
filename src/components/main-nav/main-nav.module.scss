@@ -21,8 +21,8 @@
 
 .hamburger {
     position: absolute;
-    right: 50px;
-    top: 50px;
+    right: $spacer-2;
+    top: $spacer-2;
     z-index: $hamburger-z;
 }
 
@@ -51,13 +51,13 @@
 
 .navContainer {
     position: relative;
-    top: 150px;
-    margin-right: 55px;
+    top: $spacer-5;
+    margin-right: $spacer-2;
 
     & li {
         font-size: 1.6rem;
         list-style-type: none;
-        margin-bottom: 50px;
+        margin-bottom: $spacer-2;
         text-align: right;
     }
 }
@@ -68,7 +68,7 @@
 
     &:hover,
     &:focus {
-        font-weight: bold;
+        color: $grey-50;
         outline: none;
     }
 }
@@ -80,8 +80,8 @@
 .navFooter {
     bottom: 0;
     color: $grey-50;
-    margin: 0 10px 10px;
+    margin: 0 $spacer-1 $spacer-1;
     position: absolute;
     text-align: center;
-    width: calc(100% - 10px);
+    width: calc(100% - (#{$spacer-1} * 2));
 }

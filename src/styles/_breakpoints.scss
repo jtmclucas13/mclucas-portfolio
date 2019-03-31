@@ -1,0 +1,36 @@
+$tiny: 0px;
+$extra-small: 568px;
+$small: 768px;
+$medium: 900px;
+$large: 1025px;
+$extra-large: 1441px;
+
+$breakpoints: (
+    tiny: $tiny,
+    extra-small: $extra-small,
+    small: $small,
+    medium: $medium,
+    large: $large,
+    extra-large: $extra-large,
+);
+
+@mixin breakpoint($name) {
+    @if not map-has-key($breakpoints, $name) {
+        @warn "Warning: `#{$name}` is not a valid breakpoint name.";
+    } @else {
+        @media (min-width: map-get($breakpoints, $name)) {
+            @content;
+        }
+    }
+}
+
+/* stylelint-disable property-no-unknown, selector-pseudo-class-no-unknown */
+:export {
+    tiny: $tiny;
+    extraSmall: $extra-small;
+    small: $small;
+    medium: $medium;
+    large: $large;
+    extraLarge: $extra-large;
+}
+/* stylelint-enable */

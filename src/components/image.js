@@ -1,6 +1,8 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+import { small } from "../styles/_breakpoints.scss";
 import Img from "gatsby-image";
+import MediaQuery from "react-responsive";
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,24 +15,47 @@ import Img from "gatsby-image";
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const Image = () => (
-    <StaticQuery
-        query={graphql`
-            query {
-                placeholderImage: file(
-                    relativePath: { eq: "gatsby-astronaut.png" }
-                ) {
-                    childImageSharp {
-                        fluid(maxWidth: 300) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
+const ImageQuery = graphql`
+    query {
+        heroImage: file(relativePath: { eq: "headshot-white.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 2000) {
+                    ...GatsbyImageSharpFluid
                 }
             }
-        `}
-        render={data => (
-            <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-        )}
-    />
-);
+        }
+        heroImageSmall: file(relativePath: { eq: "headshot-white-small.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 800) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+    }
+`;
+
+const Image = ({ className }) => {
+    const data = useStaticQuery(ImageQuery);
+    return (
+        <MediaQuery minWidth={small}>
+            {matches => {
+                let src = data.heroImageSmall.childImageSharp.fluid;
+
+                if (matches) {
+                    src = data.heroImage.childImageSharp.fluid;
+                }
+
+                return (
+                    <Img
+                        className={className}
+                        critical={true}
+                        fluid={src}
+                        alt="Joshua McLucas headshot"
+                    />
+                );
+            }}
+        </MediaQuery>
+    );
+};
+
 export default Image;
