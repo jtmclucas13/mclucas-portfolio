@@ -9,7 +9,6 @@ import Image from "../components/image";
 
 import styles from "./index.module.scss";
 
-//JTM static strings in stings.json?
 const IndexPage = () => (
     <Layout>
         <SEO title="Home" keywords={["gatsby", "application", "react"]} />

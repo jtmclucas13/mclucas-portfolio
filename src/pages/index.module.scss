@@ -22,9 +22,9 @@
     @include breakpoint(small) {
         height: 75%;
         left: auto;
-        right: 5%; //JTM gutter vars
+        right: $spacer-responsive-1;
         text-align: center;
-        top: 25%;
+        top: $spacer-responsive-4;
         width: auto;
     }
 }
@@ -46,7 +46,7 @@
     color: $purple-50;
     font-size: 6.5rem;
     margin-top: 0;
-    padding-left: 5%;
+    padding-left: $spacer-responsive-1;
 
     @include breakpoint(extra-small) {
         font-size: 6rem;
@@ -57,10 +57,12 @@
         font-size: 8rem;
         padding-left: 0;
         margin-bottom: 1.6875rem;
+        text-align: right;
     }
 
     @include breakpoint(medium) {
         font-size: 9rem;
+        text-align: center;
     }
 
     @include breakpoint(extra-large) {
@@ -72,8 +74,8 @@
     color: $purple-50;
     font-size: 1.8rem;
     margin-top: 0;
-    margin-bottom: 5rem; //JTM variable
-    padding-left: 5%;
+    margin-bottom: $spacer-3;
+    padding-left: $spacer-responsive-1;
 
     @include breakpoint(extra-small) {
         font-size: 1.6rem;
@@ -81,13 +83,16 @@
     }
 
     @include breakpoint(small) {
-        font-size: 2.5rem;
+        font-size: 2rem;
         padding-left: 0;
-        margin-bottom: 3.5rem;
+        margin-bottom: 8rem;
+        text-align: right;
     }
 
     @include breakpoint(medium) {
         font-size: 3rem;
+        text-align: center;
+        margin-bottom: $spacer-3;
     }
 
     @include breakpoint(extra-large) {
@@ -103,7 +108,7 @@
     color: $grey-40;
     font-size: 1.2rem;
     margin-bottom: 0;
-    padding: 5%;
+    padding: $spacer-responsive-1;
     position: absolute;
     text-align: center;
     width: 100%;
@@ -114,6 +119,11 @@
         font-size: 1.6rem;
         padding: 0;
         position: static;
+        text-align: right;
+    }
+
+    @include breakpoint(medium) {
+        text-align: center;
     }
 
     @include breakpoint(extra-large) {

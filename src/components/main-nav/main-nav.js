@@ -3,7 +3,6 @@ import HamburgerMenu from "react-hamburger-menu";
 import { useStaticQuery, Link, graphql } from "gatsby";
 import classnames from "classnames";
 
-import strings from "../../static/strings.json";
 import styles from "./main-nav.module.scss";
 import { grey50, purple50 } from "../../styles/_colors.scss";
 
@@ -50,7 +49,7 @@ const MainNav = () => {
                     </nav>
                 </div>
                 <footer className={styles.navFooter}>
-                    © {new Date().getFullYear()}, {strings.me.fullName}
+                    © {new Date().getFullYear()}, Joshua McLucas
                 </footer>
             </div>
             <span className={styles.hamburger}>
