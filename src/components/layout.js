@@ -23,8 +23,8 @@ const Layout = ({ children }) => (
         debounceDelay={150}
     >
         <MainNav />
-        <div>
-            <main>{children}</main>
+        <div className="cover">
+            <main className="cover">{children}</main>
         </div>
     </ReactBreakpoints>
 );
