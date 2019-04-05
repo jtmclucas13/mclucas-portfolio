@@ -18,8 +18,8 @@ grandViewTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     "a.inverted": {
         color: yellow50,
     },
-    h1: {
-        marginTop: 0, //JTM not overwriting without !Important?
+    "h1:first-child, h2:first-child": {
+        marginTop: 0,
     },
 });
 const typography = new Typography(grandViewTheme);

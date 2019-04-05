@@ -4,7 +4,7 @@ import ReactBreakpoints from "react-breakpoints";
 import * as breakpoints from "../styles/_breakpoints.scss";
 
 import MainNav from "./main-nav/main-nav";
-import "./layout.css";
+import "./layout.css"; //JTM make the `main` component have bg color
 
 const numberedBreakpoints = Object.entries(breakpoints).reduce(
     (acc, [key, value]) => {

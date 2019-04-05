@@ -166,6 +166,9 @@ button,
 select {
     text-transform: none;
 }
+button {
+    cursor: pointer;
+}
 [type="reset"],
 [type="submit"],
 button,
