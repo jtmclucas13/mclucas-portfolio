@@ -1,3 +1,5 @@
+@import "../styles/variables.scss";
+
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -612,4 +614,8 @@ div[role="group"][tabindex],
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+main {
+    background-color: $blue-10;
 }

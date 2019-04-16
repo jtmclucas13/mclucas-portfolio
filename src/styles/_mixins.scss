@@ -1,0 +1,12 @@
+@mixin basicInput {
+    border: 1px solid $grey-50;
+    border-radius: 5px;
+    padding: $spacer-0;
+    transition: border-color 250ms ease-in;
+
+    &:focus {
+        border: 1px solid $purple-50;
+        outline: none;
+        transition: border-color 250ms ease-in;
+    }
+}

@@ -1,0 +1,16 @@
+@import "../../styles/variables.scss";
+
+.button {
+    background-color: $purple-50;
+    border: 1px solid $purple-50;
+    border-radius: 5px;
+    color: $grey-40;
+    padding: $spacer-0;
+    transition: background-color 250ms ease-out, color 250ms ease-out;
+
+    &:hover {
+        background-color: $blue-10;
+        color: $purple-50;
+        transition: all 250ms ease-in;
+    }
+}

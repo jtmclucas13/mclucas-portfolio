@@ -2,6 +2,9 @@ import React from "react";
 import { withPrefix } from "gatsby";
 
 import Layout from "../components/layout";
+import BasicInput from "../components/basic-input/basic-input";
+import BasicButton from "../components/basic-button/basic-button";
+import BasicTextarea from "../components/basic-textarea/basic-textarea";
 import SEO from "../components/seo";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
@@ -19,13 +22,28 @@ const ContactPage = () => (
                 method="POST"
             >
                 <h1>Drop me a line</h1>
-                <label htmlFor="email">Email</label>
-                <input id="email" required type="email" name="_replyto" />
-                <label htmlFor="subject">Subject</label>
-                <input id="subject" required type="text" name="__subject" />
-                <label htmlFor="message">Message</label>
-                <textarea id="message" required name="name" />
-                <button type="submit">Send Email (After Captcha)</button>
+                <BasicInput
+                    id="email"
+                    isRequired
+                    label="Email"
+                    name="_replyto"
+                    type="email"
+                />
+                <BasicInput
+                    id="subject"
+                    isRequired
+                    label="Subject"
+                    name="__subject"
+                />
+                <BasicTextarea
+                    id="message"
+                    isRequired
+                    label="Message"
+                    name="name"
+                />
+                <BasicButton type="submit">
+                    Send Email (After Captcha)
+                </BasicButton>
             </form>
             <div className={styles.rightSide}>
                 <h2>
