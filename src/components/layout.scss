@@ -1,9 +1,13 @@
+@import "../styles/variables.scss";
+
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     font: 112.5%/1.45em georgia, serif;
     box-sizing: border-box;
+    height: 100%;
     overflow-y: scroll;
+    width: 100%;
 }
 body {
     margin: 0;
@@ -16,6 +20,8 @@ body {
     -ms-font-feature-settings: "kern", "liga", "clig", "calt";
     -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
     font-feature-settings: "kern", "liga", "clig", "calt";
+    height: 100%;
+    width: 100%;
 }
 article,
 aside,
@@ -161,6 +167,9 @@ input {
 button,
 select {
     text-transform: none;
+}
+button {
+    cursor: pointer;
 }
 [type="reset"],
 [type="submit"],
@@ -595,4 +604,18 @@ pre tt:after {
     html {
         font-size: 100%;
     }
+}
+
+html,
+body,
+#___gatsby,
+div[role="group"][tabindex],
+.cover {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+main {
+    background-color: $blue-10;
 }

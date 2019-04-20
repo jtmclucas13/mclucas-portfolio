@@ -4,7 +4,7 @@ import ReactBreakpoints from "react-breakpoints";
 import * as breakpoints from "../styles/_breakpoints.scss";
 
 import MainNav from "./main-nav/main-nav";
-import "./layout.css";
+import "./layout.scss";
 
 const numberedBreakpoints = Object.entries(breakpoints).reduce(
     (acc, [key, value]) => {
@@ -23,8 +23,8 @@ const Layout = ({ children }) => (
         debounceDelay={150}
     >
         <MainNav />
-        <div>
-            <main>{children}</main>
+        <div className="cover">
+            <main className="cover">{children}</main>
         </div>
     </ReactBreakpoints>
 );
