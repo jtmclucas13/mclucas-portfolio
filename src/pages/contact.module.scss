@@ -60,5 +60,11 @@
 
 .socialLogo {
     height: 64px;
+    transition: fill 250ms ease-in;
     width: 64px;
+
+    &:hover {
+        fill: $yellow-70;
+        transition: fill 250ms ease-in;
+    }
 }

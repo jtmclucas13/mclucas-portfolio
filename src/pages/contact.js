@@ -10,8 +10,9 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 import styles from "./contact.module.scss";
 
-//JTM link colors/styles
-// - obfuscate email address and test formspree with it
+//JTM
+// - header
+// - use gatsby-source-filesystem for resume
 const ContactPage = () => (
     <Layout>
         <SEO title="Contact Me" keywords={["gatsby", "application", "react"]} />
