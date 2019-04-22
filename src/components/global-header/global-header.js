@@ -4,8 +4,8 @@ import { Link } from "gatsby";
 import styles from "./global-header.module.scss";
 
 const GlobalHeader = () => (
-    <header class={styles.headerContainer}>
-        <Link class="noUnderline" to="/">
+    <header className={styles.headerContainer}>
+        <Link className="noUnderline" to="/">
             <h1>Joshua McLucas</h1>
         </Link>
     </header>
