@@ -18,10 +18,25 @@ grandViewTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     "a.inverted": {
         color: yellow50,
     },
+    "a.noUnderline": {
+        textDecoration: "none",
+    },
+    h1: {
+        color: purple50,
+    },
     "h1:first-child, h2:first-child": {
         marginTop: 0,
     },
 });
-const typography = new Typography(grandViewTheme);
+const typography = new Typography({
+    ...grandViewTheme,
+    googleFonts: [
+        ...grandViewTheme.googleFonts,
+        {
+            name: "Montserrat",
+            styles: ["400", "700"],
+        },
+    ],
+});
 
 export default typography;

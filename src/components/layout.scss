@@ -4,6 +4,7 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     font: 112.5%/1.45em georgia, serif;
+    background-color: $blue-10;
     box-sizing: border-box;
     height: 100%;
     overflow-y: scroll;
@@ -606,16 +607,10 @@ pre tt:after {
     }
 }
 
-html,
-body,
 #___gatsby,
 div[role="group"][tabindex],
 .cover {
     display: flex;
     flex-direction: column;
     flex: 1;
-}
-
-main {
-    background-color: $blue-10;
 }
