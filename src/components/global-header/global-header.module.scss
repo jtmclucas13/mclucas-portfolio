@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.headerContainer {
+    background-color: $blue-10;
+    padding: $spacer-2 $spacer-1;
+
+    @include breakpoint(medium) {
+        padding: $spacer-2 $spacer-2;
+    }
+
+    h1 {
+        font-weight: 400;
+        margin-bottom: 0;
+    }
+}

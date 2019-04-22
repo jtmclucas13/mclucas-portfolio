@@ -4,9 +4,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 100%;
     justify-content: center;
-    width: 100%;
 
     @include breakpoint(medium) {
         flex-direction: row;
@@ -18,10 +16,9 @@
     flex: 1;
     flex-direction: column;
     height: 100%;
-    margin-top: $spacer-4;
+    margin-bottom: $spacer-2;
     padding: 0 $spacer-1;
     justify-content: center;
-    margin-bottom: 0;
     width: 100%;
 
     input,
@@ -30,6 +27,7 @@
     }
 
     @include breakpoint(medium) {
+        margin-bottom: 0;
         margin-top: 0;
         padding: 0 $spacer-2;
     }

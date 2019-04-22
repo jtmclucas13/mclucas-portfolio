@@ -11,7 +11,6 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import styles from "./contact.module.scss";
 
 //JTM
-// - header
 // - use gatsby-source-filesystem for resume
 const ContactPage = () => (
     <Layout>
@@ -22,7 +21,7 @@ const ContactPage = () => (
                 action="https://formspree.io/jtmclucas13@gmail.com"
                 method="POST"
             >
-                <h1>Drop me a line</h1>
+                <h2>Drop me a line</h2>
                 <BasicInput
                     id="email"
                     isRequired

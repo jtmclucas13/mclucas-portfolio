@@ -22,9 +22,13 @@
 .hamburger {
     cursor: pointer;
     position: absolute;
-    right: $spacer-2;
+    right: $spacer-1;
     top: $spacer-2;
     z-index: $hamburger-z;
+    
+    @include breakpoint(medium) {
+        right: $spacer-2;
+    }
 }
 
 .slideout {
