@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { navigate } from "gatsby";
 import Typist from "react-typist";
 
 import Layout from "../components/layout";
@@ -8,9 +9,6 @@ import TerminalInput from "../components/terminal-input/terminal-input";
 import styles from "./web.module.scss";
 
 //JTM "Terminal" display
-// - style a hidden text area for the last line and allow for
-//     Enter + 'Y' to programmatically navigate to Contact page
-//     Enter + 'N' to display a second command
 // - add links on the right side for explanation, everything else?
 
 const typistConfig = {
@@ -26,6 +24,15 @@ function autofocusInput(ref) {
     ref.current.focus();
 }
 
+function submitToggleCommand(ref, onNo, onYes) {
+    if (ref.current.value.toLowerCase() === "n") {
+        onNo(true);
+        ref.current.blur();
+    } else if (ref.current.value.toLowerCase() === "y") {
+        onYes();
+    }
+}
+
 const WebPage = () => {
     const [shouldShowSeeStuff, toggleShowSeeStuff] = useState(false);
     const [shouldShowTheater, toggleShowTheater] = useState(false);
@@ -34,13 +41,6 @@ const WebPage = () => {
     const hireMeInput = React.createRef();
     const seeWebInput = React.createRef();
     const seeTheaterInput = React.createRef();
-
-    function submitToggleCommand(ref, onToggleActivated) {
-        if (ref.current.value.toLowerCase() === "n") {
-            onToggleActivated(true);
-            ref.current.blur();
-        }
-    }
 
     return (
         <Layout>
@@ -60,7 +60,11 @@ const WebPage = () => {
                     maxLength={1}
                     name="hireMeInput"
                     onEnterKeyUp={() =>
-                        submitToggleCommand(hireMeInput, toggleShowSeeStuff)
+                        submitToggleCommand(
+                            hireMeInput,
+                            toggleShowSeeStuff,
+                            () => navigate("/contact"),
+                        )
                     }
                     ref={hireMeInput}
                 />
@@ -80,6 +84,7 @@ const WebPage = () => {
                                 submitToggleCommand(
                                     seeWebInput,
                                     toggleShowTheater,
+                                    () => navigate("/web/portfolio"),
                                 )
                             }
                             ref={seeWebInput}
@@ -102,6 +107,7 @@ const WebPage = () => {
                                 submitToggleCommand(
                                     seeTheaterInput,
                                     toggleShowThankYou,
+                                    () => navigate("/theater"),
                                 )
                             }
                             ref={seeTheaterInput}
