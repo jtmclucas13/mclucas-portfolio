@@ -36,6 +36,10 @@ const typography = new Typography({
             name: "Montserrat",
             styles: ["400", "700"],
         },
+        {
+            name: "Inconsolata",
+            styles: ["400"],
+        },
     ],
 });
 

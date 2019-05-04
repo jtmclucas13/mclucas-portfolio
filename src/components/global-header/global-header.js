@@ -5,9 +5,11 @@ import styles from "./global-header.module.scss";
 
 const GlobalHeader = () => (
     <header className={styles.headerContainer}>
-        <Link className="noUnderline" to="/">
-            <h1>Joshua McLucas</h1>
-        </Link>
+        <h1>
+            <Link className="noUnderline" to="/">
+                Joshua McLucas
+            </Link>
+        </h1>
     </header>
 );
 
