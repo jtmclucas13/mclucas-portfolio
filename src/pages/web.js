@@ -11,8 +11,7 @@ import styles from "./web.module.scss";
 // - style a hidden text area for the last line and allow for
 //     Enter + 'Y' to programmatically navigate to Contact page
 //     Enter + 'N' to display a second command
-// - remove "onClick" away
-// - add an easy link on the right side for "see my stuff"
+// - add links on the right side for explanation, everything else?
 
 const typistConfig = {
     avgTypingDelay: 45,
@@ -31,14 +30,22 @@ const WebPage = () => {
     const [shouldShowSeeStuff, toggleShowSeeStuff] = useState(false);
     const [shouldShowTheater, toggleShowTheater] = useState(false);
     const [shouldShowThankYou, toggleShowThankYou] = useState(false);
+
     const hireMeInput = React.createRef();
     const seeWebInput = React.createRef();
     const seeTheaterInput = React.createRef();
 
+    function submitToggleCommand(ref, onToggleActivated) {
+        if (ref.current.value.toLowerCase() === "n") {
+            onToggleActivated(true);
+            ref.current.blur();
+        }
+    }
+
     return (
         <Layout>
             <SEO title="Web" keywords={["gatsby", "application", "react"]} />
-            <div class={styles.terminalContainer}>
+            <div className={styles.terminalContainer}>
                 Maybe you'd like to...
                 <br />
                 <Typist
@@ -46,12 +53,15 @@ const WebPage = () => {
                     onTypingDone={() => autofocusInput(hireMeInput)}
                     startDelay={350}
                 >
-                    <span onClick={toggleShowSeeStuff}>Hire Me? (y|n)</span>
+                    Hire Me? (y|n)
                 </Typist>
                 <TerminalInput
                     id="hireMeInput"
                     maxLength={1}
                     name="hireMeInput"
+                    onEnterKeyUp={() =>
+                        submitToggleCommand(hireMeInput, toggleShowSeeStuff)
+                    }
                     ref={hireMeInput}
                 />
                 {shouldShowSeeStuff && (
@@ -60,14 +70,18 @@ const WebPage = () => {
                             {...typistConfig}
                             onTypingDone={() => autofocusInput(seeWebInput)}
                         >
-                            <span onClick={toggleShowTheater}>
-                                See my stuff? (y|n)
-                            </span>
+                            See my stuff? (y|n)
                         </Typist>
                         <TerminalInput
                             id="seeWebInput"
                             maxLength={1}
                             name="seeWebInput"
+                            onEnterKeyUp={() =>
+                                submitToggleCommand(
+                                    seeWebInput,
+                                    toggleShowTheater,
+                                )
+                            }
                             ref={seeWebInput}
                         />
                     </div>
@@ -78,14 +92,18 @@ const WebPage = () => {
                             {...typistConfig}
                             onTypingDone={() => autofocusInput(seeTheaterInput)}
                         >
-                            <span onClick={toggleShowThankYou}>
-                                Discover newfound interest in theater? (y|n)
-                            </span>
+                            Discover newfound interest in theater? (y|n)
                         </Typist>
                         <TerminalInput
                             id="seeTheaterInput"
                             maxLength={1}
                             name="seeTheaterInput"
+                            onEnterKeyUp={() =>
+                                submitToggleCommand(
+                                    seeTheaterInput,
+                                    toggleShowThankYou,
+                                )
+                            }
                             ref={seeTheaterInput}
                         />
                     </div>
