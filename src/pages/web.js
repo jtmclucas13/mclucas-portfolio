@@ -19,14 +19,21 @@ const typistConfig = {
     className: styles.typistContainer,
     cursor: {
         hideWhenDone: true,
-        hideWhenDoneDelay: 100,
+        hideWhenDoneDelay: 0,
     },
 };
+
+function autofocusInput(ref) {
+    ref.current.focus();
+}
 
 const WebPage = () => {
     const [shouldShowSeeStuff, toggleShowSeeStuff] = useState(false);
     const [shouldShowTheater, toggleShowTheater] = useState(false);
     const [shouldShowThankYou, toggleShowThankYou] = useState(false);
+    const hireMeInput = React.createRef();
+    const seeWebInput = React.createRef();
+    const seeTheaterInput = React.createRef();
 
     return (
         <Layout>
@@ -34,44 +41,52 @@ const WebPage = () => {
             <div class={styles.terminalContainer}>
                 Maybe you'd like to...
                 <br />
-                <Typist {...typistConfig} startDelay={350}>
-                    <span onClick={toggleShowSeeStuff}>
-                        Hire Me? (y|n)
-                        <br />
-                    </span>
+                <Typist
+                    {...typistConfig}
+                    onTypingDone={() => autofocusInput(hireMeInput)}
+                    startDelay={350}
+                >
+                    <span onClick={toggleShowSeeStuff}>Hire Me? (y|n)</span>
                 </Typist>
                 <TerminalInput
                     id="hireMeInput"
                     maxLength={1}
                     name="hireMeInput"
+                    ref={hireMeInput}
                 />
                 {shouldShowSeeStuff && (
                     <div>
-                        <Typist {...typistConfig}>
+                        <Typist
+                            {...typistConfig}
+                            onTypingDone={() => autofocusInput(seeWebInput)}
+                        >
                             <span onClick={toggleShowTheater}>
                                 See my stuff? (y|n)
-                                <br />
                             </span>
                         </Typist>
                         <TerminalInput
                             id="seeWebInput"
                             maxLength={1}
                             name="seeWebInput"
+                            ref={seeWebInput}
                         />
                     </div>
                 )}
                 {shouldShowTheater && (
                     <div>
-                        <Typist {...typistConfig}>
+                        <Typist
+                            {...typistConfig}
+                            onTypingDone={() => autofocusInput(seeTheaterInput)}
+                        >
                             <span onClick={toggleShowThankYou}>
                                 Discover newfound interest in theater? (y|n)
-                                <br />
                             </span>
                         </Typist>
                         <TerminalInput
                             id="seeTheaterInput"
                             maxLength={1}
                             name="seeTheaterInput"
+                            ref={seeTheaterInput}
                         />
                     </div>
                 )}
