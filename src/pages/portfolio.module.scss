@@ -1,0 +1,37 @@
+@import "../styles/variables.scss";
+
+.container {
+    padding: 0 $spacer-2;
+
+    h1, h2 {
+        text-align: center;
+    }
+}
+
+//JTM felt cute, might delete later
+.itemContainer {
+    display: flex;
+}
+
+.imageContainer {
+    flex: 1;
+    margin-right: $spacer-2;
+}
+
+.logoImage {
+    margin: $spacer-1 $spacer-3 $spacer-1;
+}
+
+.textContainer {
+    flex: 2;
+}
+
+.projectDescriptor {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    svg {
+        margin-right: $spacer-0;
+    }
+}
