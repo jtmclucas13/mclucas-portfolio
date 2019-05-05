@@ -37,8 +37,18 @@ const Terminal = () => {
     const seeWebInput = React.createRef();
     const seeTheaterInput = React.createRef();
 
+    function autofocusLastInput() {
+        if (shouldShowSeeStuff) {
+            autofocusInput(seeWebInput);
+        } else if (shouldShowTheater) {
+            autofocusInput(seeWebInput);
+        } else {
+            autofocusInput(hireMeInput);
+        }
+    }
+
     return (
-        <div className={styles.terminalContainer}>
+        <div className={styles.terminalContainer} onClick={autofocusLastInput}>
             Maybe you'd like to...
             <br />
             <Typist

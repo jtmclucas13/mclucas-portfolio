@@ -6,8 +6,6 @@ import Terminal from "../components/terminal/terminal";
 
 //JTM "Terminal" display
 // - add links on the right side for explanation, everything else?
-// - focus last input when clicked
-// - useReducer instead of all the useState calls?
 
 const WebPage = () => (
     <Layout>
