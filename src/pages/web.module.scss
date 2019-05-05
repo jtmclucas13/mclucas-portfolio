@@ -1,0 +1,29 @@
+@import "../styles/variables.scss";
+
+.container {
+    @include breakpoint(medium) {
+        flex-direction: row;
+    }
+}
+
+.terminalContainer {
+    flex: 1;
+    margin: 0 $spacer-1;
+
+    @include breakpoint(medium) {
+        margin: 0 $spacer-1 $spacer-1;
+    }
+}
+
+.textContainer {
+    flex: 1;
+    padding: $spacer-1;
+
+    @include breakpoint(small) {
+        padding: $spacer-2;
+    }
+
+    @include breakpoint(medium) {
+        padding: 0 $spacer-2 $spacer-2;
+    }
+}

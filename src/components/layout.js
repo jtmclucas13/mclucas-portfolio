@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 import ReactBreakpoints from "react-breakpoints";
 import * as breakpoints from "../styles/_breakpoints.scss";
 
@@ -17,7 +18,7 @@ const numberedBreakpoints = Object.entries(breakpoints).reduce(
     {},
 );
 
-const Layout = ({ children, shouldShowHeader }) => (
+const Layout = ({ children, contentClassName, shouldShowHeader }) => (
     <ReactBreakpoints
         breakpoints={numberedBreakpoints}
         debounceResize={true}
@@ -26,7 +27,9 @@ const Layout = ({ children, shouldShowHeader }) => (
         {shouldShowHeader && <GlobalHeader />}
         <MainNav />
         <div className="cover">
-            <main className="cover">{children}</main>
+            <main className={classnames("cover", contentClassName)}>
+                {children}
+            </main>
         </div>
     </ReactBreakpoints>
 );
@@ -37,6 +40,7 @@ Layout.defaultProps = {
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
+    contentClassName: PropTypes.string,
     shouldShowHeader: PropTypes.bool,
 };
 

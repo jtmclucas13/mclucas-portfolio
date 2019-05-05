@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { navigate } from "gatsby";
+import classnames from "classnames";
 import Typist from "react-typist";
 
 import TerminalInput from "../terminal-input/terminal-input";
@@ -28,7 +30,7 @@ function submitToggleCommand(ref, onNo, onYes) {
     }
 }
 
-const Terminal = () => {
+const Terminal = ({ className }) => {
     const [shouldShowSeeStuff, toggleShowSeeStuff] = useState(false);
     const [shouldShowTheater, toggleShowTheater] = useState(false);
     const [shouldShowThankYou, toggleShowThankYou] = useState(false);
@@ -48,7 +50,10 @@ const Terminal = () => {
     }
 
     return (
-        <div className={styles.terminalContainer} onClick={autofocusLastInput}>
+        <div
+            className={classnames(styles.terminalContainer, className)}
+            onClick={autofocusLastInput}
+        >
             Maybe you'd like to...
             <br />
             <Typist
@@ -123,6 +128,10 @@ const Terminal = () => {
             )}
         </div>
     );
+};
+
+Terminal.propTypes = {
+    className: PropTypes.string,
 };
 
 export default Terminal;
