@@ -1,0 +1,9 @@
+@import "../../styles/variables.scss";
+
+.input {
+    background-color: transparent;
+    border: none;
+    color: $green-80;
+    font-family: $font-family-monospace;
+    outline: none;
+}

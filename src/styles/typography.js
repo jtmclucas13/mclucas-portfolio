@@ -24,7 +24,7 @@ grandViewTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     h1: {
         color: purple50,
     },
-    "h1:first-child, h2:first-child": {
+    "h1:first-child, h2:first-child, h1 + h2": {
         marginTop: 0,
     },
 });
@@ -35,6 +35,10 @@ const typography = new Typography({
         {
             name: "Montserrat",
             styles: ["400", "700"],
+        },
+        {
+            name: "Inconsolata",
+            styles: ["400"],
         },
     ],
 });
