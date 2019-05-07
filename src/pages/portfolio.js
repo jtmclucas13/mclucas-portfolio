@@ -13,6 +13,7 @@ import styles from "./portfolio.module.scss";
 // - componetize the section (left/right props)
 // - drive it with GraphQL
 // - call to action in between
+// - tooltip in icons
 
 const LogoQuery = graphql`
     query {
