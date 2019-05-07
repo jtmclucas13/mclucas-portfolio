@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Icon from "../components/icon/icon";
 import { FaLink, FaLock } from "react-icons/fa";
 
 import styles from "./portfolio.module.scss";
@@ -15,7 +16,7 @@ import styles from "./portfolio.module.scss";
 
 const LogoQuery = graphql`
     query {
-        logo: file(relativePath: { eq: "icons/urbn-logo.png" }) {
+        logo: file(relativePath: { eq: "urbn-logo.png" }) {
             childImageSharp {
                 fluid(maxWidth: 300) {
                     ...GatsbyImageSharpFluid
@@ -61,9 +62,22 @@ const PorfolioPage = () => (
                     well as managing some third party integrations with services
                     such as Intercom and Braze.
                 </p>
-                <div>
-                    Tech icon field here (hover tooltip for tech name) Vue,
-                    Storybook, Jest
+                <div className={styles.iconContainer}>
+                    <Icon
+                        alt="Vue logo"
+                        className={styles.icon}
+                        name="vue-logo"
+                    />
+                    <Icon
+                        alt="Storybook logo"
+                        className={styles.icon}
+                        name="storybook-logo"
+                    />
+                    <Icon
+                        alt="Jest logo"
+                        className={styles.icon}
+                        name="jest-logo"
+                    />
                 </div>
             </div>
         </div>
