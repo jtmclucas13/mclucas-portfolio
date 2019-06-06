@@ -1,0 +1,61 @@
+@import "../../styles/variables.scss";
+
+//JTM felt cute, might delete later
+.itemContainer {
+    display: flex;
+}
+
+.reversed {
+    flex-direction: row-reverse;
+}
+
+.imageContainer {
+    flex: 1;
+}
+
+.logoImageContainer {
+    margin: 0 40% $spacer-1 0;
+    width: 60%;
+
+    .reversed & {
+        margin: 0 0 $spacer-1 40%;
+    }
+}
+
+.textContainer {
+    flex: 2;
+}
+
+.projectDescriptor {
+    align-items: center;
+    display: flex;
+
+    .reversed & {
+        flex-direction: row-reverse;
+    }
+
+    svg {
+        margin-right: $spacer-0;
+
+        .reversed & {
+            margin-right: 0;
+            margin-left: $spacer-0;
+        }
+    }
+}
+
+.iconContainer {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    height: 48px;
+    margin-right: $spacer-2;
+    width: 48px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}

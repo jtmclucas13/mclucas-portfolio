@@ -6,48 +6,12 @@
     h1, h2 {
         text-align: center;
     }
-}
 
-//JTM felt cute, might delete later
-.itemContainer {
-    display: flex;
-}
-
-.imageContainer {
-    flex: 1;
-    margin-right: $spacer-2;
-}
-
-.logoImage {
-    margin: $spacer-1 $spacer-3 $spacer-1;
-}
-
-.textContainer {
-    flex: 2;
-}
-
-.projectDescriptor {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-    svg {
-        margin-right: $spacer-0;
+    h2 {
+        margin-bottom: $spacer-3;
     }
 }
 
-.iconContainer {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-.icon {
-    height: 48px;
-    margin-right: $spacer-2;
-    width: 48px;
-
-    &:last-child {
-        margin-right: 0;
-    }
+.portfolioSection {
+    margin-bottom: $spacer-3;
 }
