@@ -32,7 +32,7 @@ const WebPage = () => (
             </p>
             <p>
                 For more details on my work history and past clients, check out{" "}
-                <Link to="/web/portfolio">my portfolio</Link>.
+                <Link to="/web-portfolio">my portfolio</Link>.
             </p>
         </div>
     </Layout>

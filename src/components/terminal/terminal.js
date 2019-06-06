@@ -92,7 +92,7 @@ const Terminal = ({ className }) => {
                             submitToggleCommand(
                                 seeWebInput,
                                 toggleShowTheater,
-                                () => navigate("/web/portfolio"),
+                                () => navigate("/web-portfolio"),
                             )
                         }
                         ref={seeWebInput}

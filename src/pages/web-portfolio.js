@@ -7,7 +7,7 @@ import PortfolioSection from "../components/portfolio-section/portfolio-section"
 
 import styles from "./portfolio.module.scss";
 
-//JTM is it worth it nesting it at /web/portfolio or should it just be /web-portfolio and /theater-portfolio?
+//JTM
 // - call to action in between?
 // - responsive design
 
