@@ -10,14 +10,8 @@ const AllIconsQuery = graphql`
         allFile(filter: { relativePath: { regex: "/icons/" } }) {
             edges {
                 node {
+                    ...SvgSafeImage
                     name
-                    childImageSharp {
-                        fluid(maxWidth: 50) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
-                    extension
-                    publicURL
                 }
             }
         }

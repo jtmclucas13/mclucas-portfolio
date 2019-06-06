@@ -1,30 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import { graphql, useStaticQuery } from "gatsby";
-import { FaLink, FaLock } from "react-icons/fa";
+import { FaLink, FaLock, FaGithub } from "react-icons/fa";
 
 import Icon from "../icon/icon";
 import SvgSafeImage from "../svg-safe-image/svg-safe-image";
 
 import styles from "./portfolio-section.module.scss";
 
-const LogoQuery = graphql`
-    query {
-        logo: file(relativePath: { eq: "urbn-logo.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 300) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-            extension
-            publicURL
-        }
-    }
-`;
-
-const PortfolioSection = ({ className, shouldReverse }) => {
-    const brandLogo = useStaticQuery(LogoQuery).logo; //JTM useCallback/useMemo?
+const PortfolioSection = ({
+    body,
+    className,
+    logoImage,
+    projectLink,
+    projectName,
+    repositoryLink,
+    shouldReverse,
+    title,
+    toolsUsed,
+}) => {
     const containerClasses = classnames(styles.itemContainer, className, {
         [styles.reversed]: shouldReverse,
     });
@@ -34,52 +28,43 @@ const PortfolioSection = ({ className, shouldReverse }) => {
             <div className={styles.imageContainer}>
                 <div className={styles.logoImageContainer}>
                     <SvgSafeImage
-                        alt="URBN logo"
-                        childImageSharp={brandLogo.childImageSharp}
-                        extension={brandLogo.extension}
-                        publicURL={brandLogo.publicURL}
+                        alt={`${projectName} logo`}
+                        childImageSharp={logoImage.childImageSharp}
+                        extension={logoImage.extension}
+                        publicURL={logoImage.publicURL}
                     />
                 </div>
                 <div className={styles.projectDescriptor}>
-                    <FaLock />
-                    Repository is private
+                    {repositoryLink ? (
+                        <React.Fragment>
+                            <FaGithub />
+                            {repositoryLink}
+                        </React.Fragment>
+                    ) : (
+                        <React.Fragment>
+                            <FaLock />
+                            Repository is private
+                        </React.Fragment>
+                    )}
                 </div>
                 <div className={styles.projectDescriptor}>
                     <FaLink />
-                    Nuuly home page
+                    <a href={projectLink}>{projectName} home page</a>
                 </div>
             </div>
             <div className={styles.textContainer}>
-                <h3>Building a new brand</h3>
-                <p>
-                    As a contractor at PromptWorks(link), I collaborated with
-                    engineers at URBN to build the customer-facing app for a new
-                    clothing rental service called Nuuly(link). I led the
-                    PromptWorks team in building the account management, product
-                    review, and report a problem sections of the site using Vue.
-                    I was responsible for kick-starting their unit testing, as
-                    well as managing some third party integrations with services
-                    such as Intercom and Braze.
-                </p>
+                <h3>{title}</h3>
+                <div dangerouslySetInnerHTML={{ __html: body }} />
                 <div className={styles.iconContainer}>
-                    <Icon
-                        alt="Vue logo"
-                        className={styles.icon}
-                        name="vue-logo"
-                        tooltip="Vue JS"
-                    />
-                    <Icon
-                        alt="Storybook logo"
-                        className={styles.icon}
-                        name="storybook-logo"
-                        tooltip="Storybook"
-                    />
-                    <Icon
-                        alt="Jest logo"
-                        className={styles.icon}
-                        name="jest-logo"
-                        tooltip="Jest"
-                    />
+                    {toolsUsed.map(tool => (
+                        <Icon
+                            key={tool.name}
+                            alt={tool.alt}
+                            className={styles.icon}
+                            name={tool.name}
+                            tooltip={tool.tooltip}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
@@ -87,8 +72,25 @@ const PortfolioSection = ({ className, shouldReverse }) => {
 };
 
 PortfolioSection.propTypes = {
+    body: PropTypes.string,
     className: PropTypes.string,
+    logoImage: PropTypes.shape({
+        childImageSharp: PropTypes.object,
+        extension: PropTypes.string,
+        publicURL: PropTypes.string,
+    }),
+    projectLink: PropTypes.string,
+    projectName: PropTypes.string,
+    repositoryLink: PropTypes.string,
     shouldReverse: PropTypes.bool,
+    title: PropTypes.string,
+    toolsUsed: PropTypes.arrayOf(
+        PropTypes.shape({
+            alt: PropTypes.string,
+            name: PropTypes.string,
+            tooltip: PropTypes.string,
+        }),
+    ),
 };
 
 export default PortfolioSection;
