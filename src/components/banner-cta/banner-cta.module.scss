@@ -1,0 +1,20 @@
+@import "../../styles/variables.scss";
+
+.container {
+    align-items: center;
+    background-color: $yellow-60;
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacer-3;
+    margin-left: -$spacer-2;
+    margin-right: -$spacer-2;
+    padding: $spacer-0 $spacer-2;
+}
+
+.textContainer {
+    color: $grey-40;
+    font-family: $font-family-sans;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-right: $spacer-2;
+}

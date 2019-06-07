@@ -1,15 +1,14 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, navigate } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PortfolioSection from "../components/portfolio-section/portfolio-section";
+import BannerCta from "../components/banner-cta/banner-cta";
 
 import styles from "./portfolio.module.scss";
 
-//JTM
-// - call to action in between?
-// - responsive design
+//JTM - ensure responsive design is good
 
 const WebPortfolioQuery = graphql`
     query {
@@ -57,18 +56,27 @@ const PortfolioPage = () => {
             <h1>Selected Web Experience</h1>
             <h2>(In reverse chronological order, most recent first)</h2>
             {sections.map(({ node: section }, index) => (
-                <PortfolioSection
-                    key={section.fileAbsolutePath}
-                    body={section.html}
-                    className={styles.portfolioSection}
-                    logoImage={section.frontmatter.logoImage}
-                    projectLink={section.frontmatter.projectLink}
-                    projectName={section.frontmatter.projectName}
-                    repositoryLink={section.frontmatter.repositoryLink}
-                    shouldReverse={index % 2 !== 0}
-                    title={section.frontmatter.title}
-                    toolsUsed={section.frontmatter.toolsUsed}
-                />
+                <React.Fragment>
+                    <PortfolioSection
+                        key={section.fileAbsolutePath}
+                        body={section.html}
+                        className={styles.portfolioSection}
+                        logoImage={section.frontmatter.logoImage}
+                        projectLink={section.frontmatter.projectLink}
+                        projectName={section.frontmatter.projectName}
+                        repositoryLink={section.frontmatter.repositoryLink}
+                        shouldReverse={index % 2 !== 0}
+                        title={section.frontmatter.title}
+                        toolsUsed={section.frontmatter.toolsUsed}
+                    />
+                    {index === 0 && (
+                        <BannerCta
+                            bannerText="Like what you see? I'm just an email away."
+                            buttonText="Contact Me"
+                            onButtonClick={() => navigate("/contact")}
+                        />
+                    )}
+                </React.Fragment>
             ))}
         </Layout>
     );
