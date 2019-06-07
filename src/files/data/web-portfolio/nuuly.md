@@ -8,6 +8,7 @@ repositoryLink: ""
 title: "Building a new brand"
 toolsUsed: 
     - { tooltip: "Vue JS", alt: "Vue logo", name: "vue-logo" }
+    - { tooltip: "Sass", alt: "Sass logo", name: "sass-logo" }
     - { tooltip: "Storybook", alt: "Storybook logo", name: "storybook-logo" } 
     - { tooltip: "Jest", alt: "Jest logo", name: "jest-logo" } 
 ---
