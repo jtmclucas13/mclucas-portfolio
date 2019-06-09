@@ -1,0 +1,28 @@
+@import "../styles/variables.scss";
+
+.container {
+    overflow: hidden;
+    padding: 0 $spacer-2;
+
+    @include breakpoint(extra-large) {
+        padding: 0 $spacer-5;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: $spacer-3;
+    }
+}
+
+.portfolioSection {
+    border-bottom: 1px solid $purple-50;
+    margin-bottom: $spacer-3;
+    padding-bottom: $spacer-1;
+
+    &:first-of-type {
+        border-bottom: none;
+    }
+}

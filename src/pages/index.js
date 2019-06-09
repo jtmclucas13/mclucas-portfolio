@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { Media } from "react-breakpoints";
-import className from "classnames";
+import classnames from "classnames";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -25,7 +25,7 @@ const IndexPage = () => (
                     <p className={styles.heroBody}>
                         I make{" "}
                         <Link
-                            className={className({
+                            className={classnames({
                                 light:
                                     breakpoints[currentBreakpoint] >=
                                     breakpoints.small,
@@ -39,7 +39,7 @@ const IndexPage = () => (
                         </Link>{" "}
                         and{" "}
                         <Link
-                            className={className({
+                            className={classnames({
                                 light:
                                     breakpoints[currentBreakpoint] >=
                                     breakpoints.small,
@@ -53,7 +53,7 @@ const IndexPage = () => (
                         </Link>
                         .<br /> Every now and then{" "}
                         <Link
-                            className={className({
+                            className={classnames({
                                 light:
                                     breakpoints[currentBreakpoint] >=
                                     breakpoints.small,

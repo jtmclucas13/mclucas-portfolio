@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+.container {
+    align-items: center;
+    background-color: $yellow-60;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: $spacer-3;
+    margin-left: -$spacer-5;
+    margin-right: -$spacer-5;
+    overflow: hidden;
+    padding: $spacer-0 $spacer-2;
+
+    @include breakpoint(small) {
+        flex-direction: row;
+    }
+}
+
+.textContainer {
+    color: $grey-40;
+    font-family: $font-family-sans;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: $spacer-0;
+    margin-right: 0;
+    text-align: center;
+    width: 65%;
+
+    @include breakpoint(small) {
+        margin-bottom: 0;
+        margin-right: $spacer-2;
+        text-align: left;
+        width: auto;
+    }
+}

@@ -25,6 +25,22 @@ module.exports = {
         ],
     },
     plugins: [
+        "gatsby-transformer-sharp",
+        "gatsby-plugin-sharp",
+        {
+            resolve: "gatsby-transformer-remark",
+            options: {
+                plugins: [
+                    "gatsby-remark-relative-images",
+                    {
+                        resolve: "gatsby-remark-images",
+                        options: {
+                            maxWidth: 300,
+                        },
+                    },
+                ],
+            },
+        },
         "gatsby-plugin-sass",
         {
             resolve: "gatsby-plugin-typography",
@@ -47,8 +63,6 @@ module.exports = {
                 path: `${__dirname}/src/files/`,
             },
         },
-        "gatsby-transformer-sharp",
-        "gatsby-plugin-sharp",
         {
             resolve: "gatsby-plugin-manifest",
             options: {
