@@ -3,16 +3,16 @@ import { useStaticQuery, graphql, navigate } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PortfolioSection from "../components/portfolio-section/portfolio-section";
+import TheaterPortfolioSection from "../components/theater-portfolio-section/theater-portfolio-section";
 import BannerCta from "../components/banner-cta/banner-cta";
 
 import styles from "./portfolio.module.scss";
 
-const WebPortfolioQuery = graphql`
+const TheaterPortfolioQuery = graphql`
     query {
         sections: allMarkdownRemark(
             filter: {
-                fileAbsolutePath: { regex: "//web-portfolio/(?!archive)/" }
+                fileAbsolutePath: { regex: "//theater-portfolio/(?!archive)/" }
             }
             sort: { fields: frontmatter___endDate, order: DESC }
         ) {
@@ -20,56 +20,65 @@ const WebPortfolioQuery = graphql`
                 node {
                     fileAbsolutePath
                     frontmatter {
-                        title
+                        projectName
                         startDate
                         endDate
-                        logoImage {
-                            ...SvgSafeImage
+                        images {
+                            caption
+                            src {
+                                ...SvgSafeImage
+                            }
                         }
-                        repositoryLink
-                        projectLink
-                        projectName
-                        toolsUsed {
-                            tooltip
-                            alt
-                            name
+                        director
+                        playwright
+                        reviewQuotes {
+                            author
+                            citation
+                            publication
+                            text
                         }
+                        venue
                     }
-                    html
                 }
             }
         }
     }
 `;
 
-const WebPortfolio = () => {
-    const sections = useStaticQuery(WebPortfolioQuery).sections.edges;
+//JTM
+// - how do we figure out if i'm a director or actor for a project?
+// - implement premiere
+// - rename PortfolioSection to WebPortfolioSection?
+// - can we share a layout between the two sections?
+// - do we want to have a slideshow module now?
+
+const TheaterPortfolio = () => {
+    const sections = useStaticQuery(TheaterPortfolioQuery).sections.edges;
 
     return (
         <Layout contentClassName={styles.container}>
             <SEO
-                title="Portfolio - Web"
+                title="Portfolio - Theater"
                 keywords={["gatsby", "application", "react"]}
             />
-            <h1>Selected Web Experience</h1>
+            <h1>Selected Theater Experience</h1>
             <h2>(In reverse chronological order, most recent first)</h2>
             {sections.map(({ node: section }, index) => (
                 <React.Fragment>
-                    <PortfolioSection
+                    <TheaterPortfolioSection
                         key={section.fileAbsolutePath}
-                        body={section.html}
                         className={styles.portfolioSection}
-                        logoImage={section.frontmatter.logoImage}
-                        projectLink={section.frontmatter.projectLink}
+                        director={section.frontmatter.director}
+                        images={section.frontmatter.images}
+                        playwright={section.frontmatter.playwright}
                         projectName={section.frontmatter.projectName}
-                        repositoryLink={section.frontmatter.repositoryLink}
                         shouldReverse={index % 2 !== 0}
-                        title={section.frontmatter.title}
-                        toolsUsed={section.frontmatter.toolsUsed}
+                        quotes={section.frontmatter.reviewQuotes}
+                        venue={section.frontmatter.venue}
                     />
                     {index === 0 && (
                         <BannerCta
-                            bannerText="Like what you see? I'm just an email away."
+                            bannerText="Want to work with me? Send me a message!"
                             buttonText="Contact Me"
                             onButtonClick={() => navigate("/contact")}
                         />
@@ -80,4 +89,4 @@ const WebPortfolio = () => {
     );
 };
 
-export default WebPortfolio;
+export default TheaterPortfolio;
