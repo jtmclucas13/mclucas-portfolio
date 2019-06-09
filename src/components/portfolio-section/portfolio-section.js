@@ -34,22 +34,24 @@ const PortfolioSection = ({
                         publicURL={logoImage.publicURL}
                     />
                 </div>
-                <div className={styles.projectDescriptor}>
-                    {repositoryLink ? (
-                        <React.Fragment>
-                            <FaGithub />
-                            {repositoryLink}
-                        </React.Fragment>
-                    ) : (
-                        <React.Fragment>
-                            <FaLock />
-                            Repository is private
-                        </React.Fragment>
-                    )}
-                </div>
-                <div className={styles.projectDescriptor}>
-                    <FaLink />
-                    <a href={projectLink}>{projectName} home page</a>
+                <div className={styles.descriptorContainer}>
+                    <div className={styles.projectDescriptor}>
+                        {repositoryLink ? (
+                            <React.Fragment>
+                                <FaGithub />
+                                {repositoryLink}
+                            </React.Fragment>
+                        ) : (
+                            <React.Fragment>
+                                <FaLock />
+                                Repository is private
+                            </React.Fragment>
+                        )}
+                    </div>
+                    <div className={styles.projectDescriptor}>
+                        <FaLink />
+                        <a href={projectLink}>{projectName} home page</a>
+                    </div>
                 </div>
             </div>
             <div className={styles.textContainer}>

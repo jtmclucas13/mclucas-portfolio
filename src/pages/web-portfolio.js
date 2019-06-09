@@ -8,8 +8,6 @@ import BannerCta from "../components/banner-cta/banner-cta";
 
 import styles from "./portfolio.module.scss";
 
-//JTM - ensure responsive design is good
-
 const WebPortfolioQuery = graphql`
     query {
         sections: allMarkdownRemark(

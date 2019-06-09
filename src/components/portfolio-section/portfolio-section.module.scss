@@ -1,24 +1,55 @@
 @import "../../styles/variables.scss";
 
-//JTM felt cute, might delete later
 .itemContainer {
     display: flex;
+    flex-direction: column;
+
+    @include breakpoint(large) {
+        flex-direction: row;
+    }
 }
 
 .reversed {
-    flex-direction: row-reverse;
+    flex-direction: column;
+
+    @include breakpoint(large) {
+        flex-direction: row-reverse;
+    }
 }
 
 .imageContainer {
+    align-items: center;
+    display: flex;
     flex: 1;
+    flex-direction: column;
+    margin-bottom: $spacer-2;
+
+    @include breakpoint(large) {
+        flex-direction: row;
+        display: block;
+        margin-bottom: 0;
+        margin-right: $spacer-2;
+    }
+
+    .reversed & {
+        align-items: center;
+        
+        @include breakpoint(large) {
+            margin-right: 0;
+            margin-left: $spacer-2;
+        }
+    }
 }
 
 .logoImageContainer {
-    margin: 0 40% $spacer-1 0;
+    margin-bottom: $spacer-1;
+    max-width: 300px;
     width: 60%;
 
     .reversed & {
-        margin: 0 0 $spacer-1 40%;
+        @include breakpoint(large) {
+            margin-left: auto;
+        }
     }
 }
 
@@ -29,33 +60,50 @@
 .projectDescriptor {
     align-items: center;
     display: flex;
+    justify-content: center;
+
+    @include breakpoint(large) {
+        justify-content: flex-start;
+    }
 
     .reversed & {
-        flex-direction: row-reverse;
+        justify-content: center;
+
+        @include breakpoint(large) {
+            justify-content: flex-end;
+        }
     }
 
     svg {
         margin-right: $spacer-0;
-
-        .reversed & {
-            margin-right: 0;
-            margin-left: $spacer-0;
-        }
     }
 }
 
 .iconContainer {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+
+    @include breakpoint(large) {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .icon {
-    height: 48px;
-    margin-right: $spacer-2;
-    width: 48px;
+    padding: $spacer-1;
+    max-width: 125px;
+    width: 50%;
 
-    &:last-child {
-        margin-right: 0;
+    @include breakpoint(large) {
+        height: 48px;
+        margin-right: $spacer-2;
+        max-width: 0;
+        width: 48px;
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }
