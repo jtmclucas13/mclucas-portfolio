@@ -26,7 +26,11 @@ const TheaterPortfolioQuery = graphql`
                         images {
                             caption
                             src {
-                                ...SvgSafeImage
+                                childImageSharp {
+                                    fluid(maxWidth: 800) {
+                                        ...GatsbyImageSharpFluid
+                                    }
+                                }
                             }
                         }
                         director
@@ -46,11 +50,11 @@ const TheaterPortfolioQuery = graphql`
 `;
 
 //JTM
-// - how do we figure out if i'm a director or actor for a project?
-// - implement premiere
+// - implement premiere & other individual features
+// - implement filter for all vs. director vs. actor
+// - re-download photos from primary source where possible
 // - rename PortfolioSection to WebPortfolioSection?
 // - can we share a layout between the two sections?
-// - do we want to have a slideshow module now?
 
 const TheaterPortfolio = () => {
     const sections = useStaticQuery(TheaterPortfolioQuery).sections.edges;
@@ -64,9 +68,8 @@ const TheaterPortfolio = () => {
             <h1>Selected Theater Experience</h1>
             <h2>(In reverse chronological order, most recent first)</h2>
             {sections.map(({ node: section }, index) => (
-                <React.Fragment>
+                <React.Fragment key={section.fileAbsolutePath}>
                     <TheaterPortfolioSection
-                        key={section.fileAbsolutePath}
                         className={styles.portfolioSection}
                         director={section.frontmatter.director}
                         images={section.frontmatter.images}

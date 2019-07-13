@@ -1,12 +1,15 @@
 ---
-startDate: 2017-05-21
-endDate: 2017-05-05
-director: "Josh McLucas"
+startDate: 2017-05-05
+endDate: 2017-05-25
+character: null
+company: "South Camden Theatre Company"
+director: "Joshua McLucas"
 images: 
     - {
-        src: "/images/urbn-logo.png",
-        caption: "Photo Credit: Me McMyself"
+        src: "/images/asher-lev.jpg",
+        caption: "Photo Credit: Robert Bingaman"
     }
+location: "Camden, NJ"
 playwright: "Aaron Posner"
 premiere: null
 projectName: "My Name Is Asher Lev"

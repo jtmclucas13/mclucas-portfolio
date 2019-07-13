@@ -37,20 +37,21 @@ const TheaterPortfolioSection = ({
                 <h4>By {playwright}</h4>
                 <h4>Directed By {director}</h4>
                 <h4>{venue}</h4>
-                {quotes.map(({ author, citation, publication, text }) => (
-                    <blockquote cite={citation} key={author}>
-                        <p>
-                            <a href={citation} target="_blank">
-                                {text}
-                            </a>
-                        </p>
-                        <footer>
-                            <cite>
-                                {author}, {publication}
-                            </cite>
-                        </footer>
-                    </blockquote>
-                ))}
+                {quotes &&
+                    quotes.map(({ author, citation, publication, text }) => (
+                        <blockquote cite={citation} key={author}>
+                            <p>
+                                <a href={citation} target="_blank">
+                                    {text}
+                                </a>
+                            </p>
+                            <footer>
+                                <cite>
+                                    {author}, {publication}
+                                </cite>
+                            </footer>
+                        </blockquote>
+                    ))}
             </div>
         </div>
     );

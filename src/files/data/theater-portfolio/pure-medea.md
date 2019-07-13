@@ -1,12 +1,15 @@
 ---
 startDate: 2018-05-19
 endDate: 2019-05-04
+character: "Jason/Dan"
+company: "Automatic Arts"
 director: "Josh McIlvain"
 images: 
     - {
-        src: "/images/urbn-logo.png",
-        caption: "Photo Credit: Me McMyself"
+        src: "/images/pure-medea.jpg",
+        caption: "Photo Credit: Ceilidh Madigan"
     }
+location: "Philadelphia, PA"
 playwright: "Josh McIlvain"
 premiere: "World"
 projectName: "Pure Medea"
