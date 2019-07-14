@@ -11,7 +11,7 @@ images:
     }
 location: "Philadelphia, PA"
 playwright: "Philip Ridley"
-premiere: "Philadelphia"
+premiere: "Philly"
 projectName: "Mercury Fur"
 reviewQuotes:
     - {

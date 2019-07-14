@@ -7,10 +7,14 @@ import SvgSafeImage from "../svg-safe-image/svg-safe-image";
 import styles from "./theater-portfolio-section.module.scss";
 
 const TheaterPortfolioSection = ({
+    character,
     className,
+    company,
     director,
     images,
+    location,
     playwright,
+    premiere,
     projectName,
     shouldReverse,
     quotes,
@@ -19,24 +23,39 @@ const TheaterPortfolioSection = ({
     const containerClasses = classnames(styles.itemContainer, className, {
         [styles.reversed]: shouldReverse,
     });
+    const title = character ? `${projectName} (${character})` : projectName;
+    const place =
+        company === venue
+            ? `${venue} - ${location}`
+            : `${company}, ${venue} - ${location}`;
 
     return (
         <div className={containerClasses}>
-            <div className={styles.imageContainer}>
-                <div className={styles.logoImageContainer}>
+            <div className={styles.imageSectionContainer}>
+                <div className={styles.imageContainer}>
                     <SvgSafeImage
                         alt={`${projectName} photo`}
                         childImageSharp={images[0].src.childImageSharp}
                         extension={images[0].src.extension}
                         publicURL={images[0].src.publicURL}
                     />
+                    {images[0].caption && (
+                        <div className={styles.captionContainer}>
+                            {images[0].caption}
+                        </div>
+                    )}
+                    {premiere && (
+                        <div className={styles.premiereBanner}>
+                            {premiere} Premiere
+                        </div>
+                    )}
                 </div>
             </div>
             <div className={styles.textContainer}>
-                <h3>{projectName}</h3>
+                <h3>{title}</h3>
                 <h4>By {playwright}</h4>
                 <h4>Directed By {director}</h4>
-                <h4>{venue}</h4>
+                <h4>{place}</h4>
                 {quotes &&
                     quotes.map(({ author, citation, publication, text }) => (
                         <blockquote cite={citation} key={author}>
@@ -58,7 +77,9 @@ const TheaterPortfolioSection = ({
 };
 
 TheaterPortfolioSection.propTypes = {
+    character: PropTypes.string,
     className: PropTypes.string,
+    company: PropTypes.string,
     director: PropTypes.string,
     images: PropTypes.arrayOf(
         PropTypes.shape({
@@ -70,7 +91,9 @@ TheaterPortfolioSection.propTypes = {
             }),
         }),
     ),
+    location: PropTypes.string,
     playwright: PropTypes.string,
+    premiere: PropTypes.string,
     projectName: PropTypes.string,
     shouldReverse: PropTypes.bool,
     quotes: PropTypes.arrayOf(

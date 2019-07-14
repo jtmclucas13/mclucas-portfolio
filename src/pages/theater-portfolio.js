@@ -20,6 +20,8 @@ const TheaterPortfolioQuery = graphql`
                 node {
                     fileAbsolutePath
                     frontmatter {
+                        character
+                        company
                         projectName
                         startDate
                         endDate
@@ -34,7 +36,9 @@ const TheaterPortfolioQuery = graphql`
                             }
                         }
                         director
+                        location
                         playwright
+                        premiere
                         reviewQuotes {
                             author
                             citation
@@ -50,7 +54,6 @@ const TheaterPortfolioQuery = graphql`
 `;
 
 //JTM
-// - implement premiere & other individual features
 // - implement filter for all vs. director vs. actor
 // - re-download photos from primary source where possible
 // - rename PortfolioSection to WebPortfolioSection?
@@ -70,10 +73,14 @@ const TheaterPortfolio = () => {
             {sections.map(({ node: section }, index) => (
                 <React.Fragment key={section.fileAbsolutePath}>
                     <TheaterPortfolioSection
+                        character={section.frontmatter.character}
+                        company={section.frontmatter.company}
                         className={styles.portfolioSection}
                         director={section.frontmatter.director}
                         images={section.frontmatter.images}
+                        location={section.frontmatter.location}
                         playwright={section.frontmatter.playwright}
+                        premiere={section.frontmatter.premiere}
                         projectName={section.frontmatter.projectName}
                         shouldReverse={index % 2 !== 0}
                         quotes={section.frontmatter.reviewQuotes}

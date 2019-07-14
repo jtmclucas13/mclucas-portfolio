@@ -30,6 +30,9 @@ grandViewTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     blockquote: {
         fontSize: "1rem",
     },
+    "blockquote p": {
+        marginBottom: "1rem",
+    },
 });
 const typography = new Typography({
     ...grandViewTheme,
