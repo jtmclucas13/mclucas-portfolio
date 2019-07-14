@@ -1,0 +1,16 @@
+@import "../../styles/variables.scss";
+
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacer-2;
+}
+
+.radioButton {
+    margin-right: $spacer-1;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}

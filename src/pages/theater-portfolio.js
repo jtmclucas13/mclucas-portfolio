@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStaticQuery, graphql, navigate } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import TheaterPortfolioSection from "../components/theater-portfolio-section/theater-portfolio-section";
 import BannerCta from "../components/banner-cta/banner-cta";
+import TheaterFilter from "../components/theater-filter/theater-filter";
 
 import styles from "./portfolio.module.scss";
+
+//JTM
+// - theater portfolio sections are weirdly spaced out (use mixin instead of shared stylesheet)
+// - animate filter action
+// - re-download photos from primary source where possible
+// - rename PortfolioSection to WebPortfolioSection?
+// - can we share a layout between the two sections?
 
 const TheaterPortfolioQuery = graphql`
     query {
@@ -53,14 +61,26 @@ const TheaterPortfolioQuery = graphql`
     }
 `;
 
-//JTM
-// - implement filter for all vs. director vs. actor
-// - re-download photos from primary source where possible
-// - rename PortfolioSection to WebPortfolioSection?
-// - can we share a layout between the two sections?
+const filterStates = {
+    ACTING: section => !!section.node.frontmatter.character,
+    ALL: section => !!section,
+    DIRECTING: section =>
+        section.node.frontmatter.director === "Joshua McLucas",
+};
+
+const useTheaterSections = () => {
+    const [activeFilter, setActiveFilter] = useState("ALL");
+    const sections = useStaticQuery(TheaterPortfolioQuery).sections.edges;
+    const activeSections = sections.filter(filterStates[activeFilter]);
+    return [activeFilter, activeSections, setActiveFilter];
+};
 
 const TheaterPortfolio = () => {
-    const sections = useStaticQuery(TheaterPortfolioQuery).sections.edges;
+    const [
+        activeFilter,
+        activeSections,
+        setActiveFilter,
+    ] = useTheaterSections();
 
     return (
         <Layout contentClassName={styles.container}>
@@ -70,7 +90,11 @@ const TheaterPortfolio = () => {
             />
             <h1>Selected Theater Experience</h1>
             <h2>(In reverse chronological order, most recent first)</h2>
-            {sections.map(({ node: section }, index) => (
+            <TheaterFilter
+                activeFilter={activeFilter}
+                onFilterChange={setActiveFilter}
+            />
+            {activeSections.map(({ node: section }, index) => (
                 <React.Fragment key={section.fileAbsolutePath}>
                     <TheaterPortfolioSection
                         character={section.frontmatter.character}
