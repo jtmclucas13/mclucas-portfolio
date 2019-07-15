@@ -1,3 +1,5 @@
+@import "./_breakpoints.scss";
+
 @mixin basicInput {
     border: 1px solid $grey-50;
     border-radius: 5px;
@@ -8,5 +10,89 @@
         border: 1px solid $purple-50;
         outline: none;
         transition: border-color 250ms ease-in;
+    }
+}
+
+@mixin portfolioLayout {
+    overflow: hidden;
+    padding: 0 $spacer-2;
+
+    @include breakpoint(extra-large) {
+        padding: 0 $spacer-5;
+    }
+
+    h1, h2 {
+        text-align: center;
+
+        @include breakpoint(extra-large) {
+            font-size: 2.5rem !important;
+        }
+    }
+
+    h2 {
+        margin-bottom: $spacer-3;
+    }
+}
+
+@mixin portfolioSectionLayout {
+    h3 {
+        @include breakpoint(extra-large) {
+            font-size: 1.8rem !important;
+        }
+    }
+
+    h4 {
+        @include breakpoint(extra-large) {
+            font-size: 1.3rem !important;
+        }
+    }
+
+    blockquote {
+        font-size: inherit;
+
+        @include breakpoint(extra-large) {
+            font-size: 1.2rem !important;
+        }
+    }
+
+    .itemContainer {
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(large) {
+            flex-direction: row;
+        }
+    }
+
+    .reversed {
+        flex-direction: column;
+
+        @include breakpoint(large) {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .imageSectionContainer {
+        align-items: center;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        margin-bottom: $spacer-2;
+
+        @include breakpoint(large) {
+            flex-direction: row;
+            display: block;
+            margin-bottom: 0;
+            margin-right: $spacer-2;
+        }
+
+        .reversed & {
+            align-items: center;
+            
+            @include breakpoint(large) {
+                margin-right: 0;
+                margin-left: $spacer-2;
+            }
+        }
     }
 }

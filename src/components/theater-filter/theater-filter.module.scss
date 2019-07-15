@@ -2,9 +2,10 @@
 
 .container {
     align-items: center;
+    border: 1px solid $purple-50;
+    border-radius: 5px;
     display: flex;
-    justify-content: center;
-    margin-bottom: $spacer-2;
+    padding: $spacer-0 $spacer-1;
 }
 
 .radioButton {

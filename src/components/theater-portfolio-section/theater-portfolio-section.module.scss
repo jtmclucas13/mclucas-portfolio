@@ -1,44 +1,11 @@
 @import "../../styles/variables.scss";
 
-.itemContainer {
-    display: flex;
-    flex-direction: column;
-
-    @include breakpoint(large) {
-        flex-direction: row;
-    }
-}
-
-.reversed {
-    flex-direction: column;
-
-    @include breakpoint(large) {
-        flex-direction: row-reverse;
-    }
-}
+@include portfolioSectionLayout;
 
 .imageSectionContainer {
-    align-items: center;
-    display: flex;
+    display: block;
     flex: 3;
-    flex-direction: column;
-    margin-bottom: $spacer-2;
-
-    @include breakpoint(large) {
-        flex-direction: row;
-        display: block;
-        margin-bottom: 0;
-        margin-right: $spacer-2;
-    }
-
-    .reversed & {
-        align-items: center;
-        
-        @include breakpoint(large) {
-            margin-right: 0;
-            margin-left: $spacer-2;
-        }
-    }
+    max-width: 1000px;
 }
 
 .imageContainer {

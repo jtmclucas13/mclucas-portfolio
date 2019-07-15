@@ -6,9 +6,9 @@ import { FaLink, FaLock, FaGithub } from "react-icons/fa";
 import Icon from "../icon/icon";
 import SvgSafeImage from "../svg-safe-image/svg-safe-image";
 
-import styles from "./portfolio-section.module.scss";
+import styles from "./web-portfolio-section.module.scss";
 
-const PortfolioSection = ({
+const WebPortfolioSection = ({
     body,
     className,
     logoImage,
@@ -25,7 +25,7 @@ const PortfolioSection = ({
 
     return (
         <div className={containerClasses}>
-            <div className={styles.imageContainer}>
+            <div className={styles.imageSectionContainer}>
                 <div className={styles.logoImageContainer}>
                     <SvgSafeImage
                         alt={`${projectName} logo`}
@@ -73,7 +73,7 @@ const PortfolioSection = ({
     );
 };
 
-PortfolioSection.propTypes = {
+WebPortfolioSection.propTypes = {
     body: PropTypes.string,
     className: PropTypes.string,
     logoImage: PropTypes.shape({
@@ -95,4 +95,4 @@ PortfolioSection.propTypes = {
     ),
 };
 
-export default PortfolioSection;
+export default WebPortfolioSection;

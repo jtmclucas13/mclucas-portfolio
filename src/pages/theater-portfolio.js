@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useStaticQuery, graphql, navigate } from "gatsby";
+import { CSSTransitionGroup } from "react-transition-group";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -7,14 +8,7 @@ import TheaterPortfolioSection from "../components/theater-portfolio-section/the
 import BannerCta from "../components/banner-cta/banner-cta";
 import TheaterFilter from "../components/theater-filter/theater-filter";
 
-import styles from "./portfolio.module.scss";
-
-//JTM
-// - theater portfolio sections are weirdly spaced out (use mixin instead of shared stylesheet)
-// - animate filter action
-// - re-download photos from primary source where possible
-// - rename PortfolioSection to WebPortfolioSection?
-// - can we share a layout between the two sections?
+import styles from "./theater-portfolio.module.scss";
 
 const TheaterPortfolioQuery = graphql`
     query {
@@ -90,16 +84,28 @@ const TheaterPortfolio = () => {
             />
             <h1>Selected Theater Experience</h1>
             <h2>(In reverse chronological order, most recent first)</h2>
-            <TheaterFilter
-                activeFilter={activeFilter}
-                onFilterChange={setActiveFilter}
-            />
+            <div className={styles.filterContainer}>
+                <TheaterFilter
+                    activeFilter={activeFilter}
+                    onFilterChange={setActiveFilter}
+                />
+            </div>
             {activeSections.map(({ node: section }, index) => (
-                <React.Fragment key={section.fileAbsolutePath}>
+                <CSSTransitionGroup
+                    className={styles.portfolioSectionContainer}
+                    component="div"
+                    key={`${section.fileAbsolutePath}-${activeFilter}`}
+                    transitionName="fadeIn"
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnter={true}
+                    transitionEnterTimeout={500}
+                    transitionLeave={false}
+                >
                     <TheaterPortfolioSection
                         character={section.frontmatter.character}
-                        company={section.frontmatter.company}
                         className={styles.portfolioSection}
+                        company={section.frontmatter.company}
                         director={section.frontmatter.director}
                         images={section.frontmatter.images}
                         location={section.frontmatter.location}
@@ -117,7 +123,7 @@ const TheaterPortfolio = () => {
                             onButtonClick={() => navigate("/contact")}
                         />
                     )}
-                </React.Fragment>
+                </CSSTransitionGroup>
             ))}
         </Layout>
     );
