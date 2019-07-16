@@ -3,10 +3,10 @@ import { useStaticQuery, graphql, navigate } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PortfolioSection from "../components/portfolio-section/portfolio-section";
+import WebPortfolioSection from "../components/web-portfolio-section/web-portfolio-section";
 import BannerCta from "../components/banner-cta/banner-cta";
 
-import styles from "./portfolio.module.scss";
+import styles from "./web-portfolio.module.scss";
 
 const WebPortfolioQuery = graphql`
     query {
@@ -42,7 +42,7 @@ const WebPortfolioQuery = graphql`
     }
 `;
 
-const PortfolioPage = () => {
+const WebPortfolio = () => {
     const sections = useStaticQuery(WebPortfolioQuery).sections.edges;
 
     return (
@@ -54,9 +54,8 @@ const PortfolioPage = () => {
             <h1>Selected Web Experience</h1>
             <h2>(In reverse chronological order, most recent first)</h2>
             {sections.map(({ node: section }, index) => (
-                <React.Fragment>
-                    <PortfolioSection
-                        key={section.fileAbsolutePath}
+                <React.Fragment key={section.fileAbsolutePath}>
+                    <WebPortfolioSection
                         body={section.html}
                         className={styles.portfolioSection}
                         logoImage={section.frontmatter.logoImage}
@@ -80,4 +79,4 @@ const PortfolioPage = () => {
     );
 };
 
-export default PortfolioPage;
+export default WebPortfolio;

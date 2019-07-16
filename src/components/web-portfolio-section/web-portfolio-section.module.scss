@@ -1,45 +1,6 @@
 @import "../../styles/variables.scss";
 
-.itemContainer {
-    display: flex;
-    flex-direction: column;
-
-    @include breakpoint(large) {
-        flex-direction: row;
-    }
-}
-
-.reversed {
-    flex-direction: column;
-
-    @include breakpoint(large) {
-        flex-direction: row-reverse;
-    }
-}
-
-.imageContainer {
-    align-items: center;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    margin-bottom: $spacer-2;
-
-    @include breakpoint(large) {
-        flex-direction: row;
-        display: block;
-        margin-bottom: 0;
-        margin-right: $spacer-2;
-    }
-
-    .reversed & {
-        align-items: center;
-        
-        @include breakpoint(large) {
-            margin-right: 0;
-            margin-left: $spacer-2;
-        }
-    }
-}
+@include portfolioSectionLayout;
 
 .logoImageContainer {
     margin-bottom: $spacer-1;
@@ -99,7 +60,7 @@
     @include breakpoint(large) {
         height: 48px;
         margin-right: $spacer-2;
-        max-width: 0;
+        padding: 0;
         width: 48px;
 
         &:last-child {

@@ -1,15 +1,24 @@
 ---
-startDate: 2018-11-01
-endDate: 2019-05-31
-logoImage: "urbn-logo.png"
-projectName: "Nuuly"
-projectLink: "https://www.nuuly.com/"
-repositoryLink: ""
-title: "Building a new brand"
-toolsUsed: 
-    - { tooltip: "Vue JS", alt: "Vue logo", name: "vue-logo" }
-    - { tooltip: "Storybook", alt: "Storybook logo", name: "storybook-logo" }
-    - { tooltip: "Jest", alt: "Jest logo", name: "jest-logo" }
+startDate: 2018-05-19
+endDate: 2019-05-04
+character: "Jason/Dan"
+company: "Automatic Arts"
+director: "Josh McIlvain"
+images: 
+    - {
+        src: "/images/pure-medea.jpg",
+        caption: "Photo Credit: Ceilidh Madigan"
+    }
+location: "Philadelphia, PA"
+playwright: "Josh McIlvain"
+premiere: "World"
+projectName: "Pure Medea"
+reviewQuotes:
+    - { 
+        author: "Toby Zinman",
+        citation: "https://www.inquirer.com/arts/theater/pure-medea-sheila-murnaghan-automatic-arts-20190509.html", 
+        publication: "Philadelphia Inquirer",
+        text: "McLucas...does crank up his Jason...we see some actual acting."
+    }
+venue: "Christ Church Neighborhood House"
 ---
-
-As a contractor at [PromptWorks](https://www.promptworks.com/), I collaborated with engineers at [URBN](https://www.urbn.com/) to build the customer-facing app for a new clothing rental service called [Nuuly](https://www.nuuly.com/). I led the PromptWorks team in building the account management, product review, and report a problem sections of the site using Vue. I was responsible for kick-starting their unit testing, as well as managing some third party integrations with services such as Intercom and Braze.

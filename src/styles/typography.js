@@ -27,6 +27,12 @@ grandViewTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     "h1:first-child, h2:first-child, h1 + h2, h3:first-child": {
         marginTop: 0,
     },
+    blockquote: {
+        fontSize: "1rem",
+    },
+    "blockquote p": {
+        marginBottom: "1rem",
+    },
 });
 const typography = new Typography({
     ...grandViewTheme,

@@ -1,0 +1,40 @@
+@import "../styles/variables.scss";
+
+.container {
+    @include portfolioLayout;
+
+    h2 {
+        margin-bottom: $spacer-2;
+    }
+}
+
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacer-2;
+}
+
+.portfolioSectionContainer {
+    & .portfolioSection {
+        margin-bottom: $spacer-3;
+    }
+
+    ~ .portfolioSectionContainer {
+        border-bottom: 1px solid $purple-50;
+        margin-bottom: $spacer-3;
+        padding-bottom: $spacer-1;
+
+        & .portfolioSection {
+            margin-bottom: 0;
+        }
+    }
+}
+
+:global(.fadeIn-appear) {
+  opacity: 0.01;
+}
+
+:global(.fadeIn-appear.fadeIn-appear-active) {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

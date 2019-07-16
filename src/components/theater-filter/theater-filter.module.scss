@@ -1,0 +1,17 @@
+@import "../../styles/variables.scss";
+
+.container {
+    align-items: center;
+    border: 1px solid $purple-50;
+    border-radius: 5px;
+    display: flex;
+    padding: $spacer-0 $spacer-1;
+}
+
+.radioButton {
+    margin-right: $spacer-1;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
