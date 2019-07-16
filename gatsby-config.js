@@ -16,7 +16,11 @@ module.exports = {
             },
             {
                 name: "Theater",
-                link: "/theater",
+                link: "/theater-portfolio",
+            },
+            {
+                name: "Blog",
+                link: "/blog",
             },
             {
                 name: "Contact",
@@ -27,20 +31,6 @@ module.exports = {
     plugins: [
         "gatsby-transformer-sharp",
         "gatsby-plugin-sharp",
-        {
-            resolve: "gatsby-transformer-remark",
-            options: {
-                plugins: [
-                    "gatsby-remark-relative-images",
-                    {
-                        resolve: "gatsby-remark-images",
-                        options: {
-                            maxWidth: 300,
-                        },
-                    },
-                ],
-            },
-        },
         "gatsby-plugin-sass",
         {
             resolve: "gatsby-plugin-typography",
@@ -59,8 +49,36 @@ module.exports = {
         {
             resolve: "gatsby-source-filesystem",
             options: {
+                name: "portfolio",
+                path: `${__dirname}/src/files/portfolio`,
+            },
+        },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
                 name: "files",
-                path: `${__dirname}/src/files/`,
+                path: `${__dirname}/src/files/static`,
+            },
+        },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "blog",
+                path: "${__dirname}/src/files/blog",
+            },
+        },
+        {
+            resolve: "gatsby-transformer-remark",
+            options: {
+                plugins: [
+                    "gatsby-remark-relative-images",
+                    {
+                        resolve: "gatsby-remark-images",
+                        options: {
+                            maxWidth: 300,
+                        },
+                    },
+                ],
             },
         },
         {

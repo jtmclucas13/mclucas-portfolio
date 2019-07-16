@@ -1,0 +1,52 @@
+---
+path: "/blog/a-shift-in-focus"
+date: "2018-10-18"
+title: "A Shift In Focus"
+---
+I’ve been a multi-hyphenate for several years now. It makes for a bit of a long email signature, but “Theater Artist & Software Engineer” is how I’ve been signing-off ever since I graduated college and decided to pursue dual careers. For the past three years I maintained full-time positions with software companies while rehearsing a few shows a year on nights and weekends. With every passing day, I grew less connected to my artist brain, eventually even switching the labels in this site to put the “Software Engineer” first in the title.
+
+It’s time to return to the theater.
+
+I am putting the 40-hour work week aside to return to a less secure, more variable lifestyle. I will be working part time at my current job for the foreseeable future, leaving behind health insurance, a retirement plan, and a cushy salary, filling in the lost income with contract or project-based tech work.
+
+I’m definitely nervous to make this transition. Going from being at-risk of homelessness in college to being totally self-sustaining and helping my family pay their bills is one of the great victories of my life. I worked my tail off to achieve a sense of comfort I never thought possible growing up in my blue-collar town of about 5000 people. The adage says that comfort doesn’t equal fulfillment, and over time that proved to be true. I’ve found recently that I need more humanity, more empathy, more love, more play, more experiences, more sweat and breath in my life.
+
+## Observations on the Tech World
+
+The tech world is an elaborate ecosystem. It is generally optimistic, ambitious, and self-critiquing. It defines problems well and attacks them swiftly, adapting to feedback as it goes.
+
+Both fields require either highly specialized training or on-the-job experience to hone your skills. Both are highly collaborative but can tolerate and reward (perhaps too easily) dominant individualism.
+
+## Feelings Matter
+
+The problems the tech community are solving are not any more difficult, not any more complex, and not any more important than the problems art solves. Creating [affordable, accessible, clean transit systems](https://www.bird.co/) is just as hard as promoting [direct empathetic engagement with the refugee experience](https://fringearts.com/event/ear-whispered-works-by-tania-el-khoury/); the former is simply more analytically broken down than the latter, where success is hard to judge and the variables are less understood. In fact, it’s the emphasis that the tech world places on measurement, data, and analytics that gives me the most pause.
+
+The [Lean Startup Methodology](http://theleanstartup.com/principles) emphasizes data’s role in creating businesses and, by extension, creating society-shaping solutions to problems. Its principle of validated learning and build-measure-learn feedback loop cycle is a definite improvement on the “build whatever the CEO feels like building” idea, but I have noticed some unintended side effects that change the way humans in these societies interact. And yes, I’m about to un-ironically complain about data by making a series of observations not backed by any data.
+
+Techies tend to quickly devalue perceptions in favor of measurements. Now, it’s definitely a good instinct to demand that people cite their sources when trying to make an argument. As you can see from a number of Hacker News comment threads - lived experience, anecdotes, intuition, and perception is thrown away as irrelevant or less important than statistics. As theater tells us again and again - stories can answer (or ask) questions in ways that science cannot. The complex intersection of hope and despair and shame and togetherness I experienced at the end of the Wilma’s KILL MOVE PARADISE is a far more effective means of exposure for white Americans to the effect of unarmed police violence on black American men than any set of statistics or data visualization because of its emphasis on bodies, language, ritual, and space - things quite hard for data to represent.
+
+## Living to Work/Working to Live
+
+While it sometimes gets flack for forcing and/or promoting ultra-long hours from its workers, the tech world also proposes a sort of office-utopia where adequate compensation is viewed as the standard. Between matching 401k plans, paid health insurance, unlimited PTO, employer-provided lunches, and high salaries, most tech jobs treat employee comfort as standard.
+
+The arts, however, provide no such comfort. Contrast the deluge of tech benefits to the public income-baring of successful Philly artists [Charlotte Ford](https://fringearts.com/2014/05/20/the-untenable-career-of-a-successful-philadelphia-theater-artist-interview-with-charlotte-ford/) or [Jess Conda](https://www.phillymag.com/news/2018/04/18/tax-day-actress-exposes-income/) who cite being paid 23k and 16k respectively in their most successful years, sans benefits. Compare all of that to the data from MIT’s [Living Wage Calculator](http://livingwage.mit.edu/metros/37980) and the results are frightening. Neither of those artists make it above the 25k required to be making a living wage in Philadelphia. Even amidst success, day jobs or nest eggs are a must.
+
+I won’t be the first to say that office life is soul-sucking, but it wasn’t until I contrasted it with theater making that I truly understood the core of the problem. Yes, it’s the too-cold-in-the-summer air conditioning. Yes, it’s the blinding white walls and isolated cubicles (or, the we-are-young-and-local-just-like-you curated communal spaces of WeWork). It’s the [hours upon hours of artificial light](https://hbr.org/2018/09/the-1-office-perk-natural-light). It’s being chained to a desk when [an extended jaunt might get the juices flowing again](https://well.blogs.nytimes.com/2014/04/30/want-to-be-more-creative-take-a-walk/). More than all this, though, it’s the lack of eye contact. It’s staring at a screen for hours upon hours at a time. It’s how people skirt past each other in the hallway, eyes downcast so as to not interact. Or worse, it’s how people make the briefest bit of eye contact and immediately glance downward, with perhaps the faintest whisper of a greeting as they pass. It’s going an entire day without having a conversation (perhaps a bigger problem for software engineers than other office workers). In the theater, eye contact is our currency. Communication is not just necessary, it is the medium of the art we make.
+
+## Disruption or Interruption
+
+The bubble is real, and [not just in Silicon Valley](https://www.ft.com/content/262e2b2c-d423-11e7-8c9a-d9c0a5c8d5c9). We often find solutions to problems that don’t exist, are solved, or can be solved without “disrupting” its industry. The [make-first-apologize-later mindset](https://www.theatlantic.com/technology/archive/2018/09/spacebees-swarm-unauthorized-satellite-launch/569395/) can certainly kickstart technological advancement, but at what cost? We’re creating subcultures that are completely unaware of how the rest of the world works, and the culture we’re creating lacks empathy, perspective-taking, and storytelling - all fundamental aspects of the arts. The 2016 election is clearly a result of this.
+
+The arts world is not without its own problems, but it would be so much easier to solve them if the folks fighting the battles were able to not worry about having enough money for their heating bill in the winter. And, doubtless, the tech world is doing great things - I’m still a part of it. I do hope that it becomes more human-centric with each passing day.
+
+## What’s Next?
+
+I’ve never been much of a career-minded artist. I initially thought that success in the arts meant simply making 100% of your income through your artistic practice, whatever that income level may be. Over the past few years I found that doing so requires doing a great deal of artistic work that does not speak to you, does not further your artistic practice, and does not live up to your standards as a truth-seeker. I struggle mightily with these gigs, as I believe artists have a duty to make work that pushes humanity toward a better version of itself, and that making art strictly for a paycheck is a waste of talent and opportunity. Not only that, but the vast majority of gigs pay very little compared to other industries. This leads to my new definition of success as an artist: a successful artist is able to live comfortably, feels inspired daily, and believes deeply in every piece they make. I don’t think success as an artist has to do with any proportion of income from the arts, or any level of fame or acclaim. For me, this means funding my artistic practice through tech work. For others, it may mean food service or dog walking, or any number of careers in the service industry. If you’re comfortable, and you’re deeply invested in your work, you are a success story - regardless of how many people see your show, or how often you get cast, or what your last painting sold for.
+
+This is my public commitment to return to a life filled with inspiration. This will likely include taking more classes, attending more protests, and re-learning two of my biggest hobbies growing up: guitar and reading for pleasure. I will return to the audition circuit and make my own work again (stay tuned for SoLow Fest 2019, I have some ideas brewing already). And I will be working plenty as well - I’ve got maybe too much work lined up for the rest of 2018.
+
+Additionally, I pledge to reinvest any surplus income from my theater work back into the arts scene. It may take some time to figure out how much money I need to live, but once I do, I will donate that surplus back to the companies and artists that I believe in and that could benefit. My years of banking that tech salary make me privileged in a way that’s new to me, and I’d like to counteract that at least a little.
+
+I also will begin offering my tech services at deeply discounted rates for artists. Whether that’s consulting, building an app, or creating a portfolio website, I’ll happily work with you to make something that you can be proud of and afford (or barter for - money ain’t everything), as long as I have the time. We’re in this together. Just contact me if you want to bounce some ideas around - my email is in the bottom-left of the footer.
+
+Buckle up, Philadelphia. Josh is back.
