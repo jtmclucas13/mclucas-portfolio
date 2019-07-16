@@ -8,17 +8,6 @@
     max-width: 1000px;
 }
 
-.imageContainer {
-    overflow: hidden;
-    position: relative;
-
-    .reversed & {
-        @include breakpoint(large) {
-            margin-left: auto;
-        }
-    }
-}
-
 .textContainer {
     flex: 2;
 
@@ -36,33 +25,4 @@
         cursor: pointer;
         opacity: 0.8;
     }
-}
-
-.premiereBanner {
-    background: $yellow-70;
-    color: $white;
-    left: auto;
-    letter-spacing: 0.5px;
-    padding: 10px 0;
-    position: absolute;
-    right: -60px;
-    text-align: center;
-    top: 50px;
-    transform: rotate(45deg);
-    width: 250px;
-
-    .reversed & {
-        left: -60px;
-        transform: rotate(-45deg);
-    }
-}
-
-.captionContainer {
-    background: rgba($black, 0.5);
-    color: $grey-40;
-    position: absolute;
-    bottom: 0;
-    padding: 5px 0;
-    text-align: center;
-    width: 100%;
 }

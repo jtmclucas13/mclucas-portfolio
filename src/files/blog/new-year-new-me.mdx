@@ -1,16 +1,25 @@
 ---
-path: "/blog/new-year-new-me"
 date: "2016-01-29"
+images:
+    - {
+        src: "/images/old-portfolio.png",
+        caption: ""
+    }
+path: "/blog/new-year-new-me"
 title: "New Year, New Me"
 ---
+import BasicImage from "../../components/basic-image/basic-image";
+
 Three years since building the original joshuamclucas.com, it's exciting to now be at the point where a portfolio redesign feels necessary. The site first went live in June 2013. In building it, I resolved to follow best practices to a T, ensuring that every line of HTML, CSS, and JavaScript was standards-compliant. It was responsive and featured a blog powered by PHP with a custom CMS. I had never taken a class in development or computer science prior to its build, and I was damn proud of the result. 
 
 But as a design, it stunk. 
-//JTM MDX for this - write a component!
-<div class="post-image">
-	<img src="{{ "/images/oldPortfolio.png"| prepend: site.url }}" alt="Pre-Redesign Site" />
-	<p>Not winning any Webby's...</p>
-</div>
+
+<BasicImage
+    alt="Old joshuamclucas.com design"
+    caption="Not winning any Webby's..."
+    childImageSharp={props.images[0].src.childImageSharp}
+    isBlogImage={true}
+/>
 
 ## Growing Older
 

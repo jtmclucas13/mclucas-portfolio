@@ -1,9 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import Layout from "../layout";
 import SEO from "../seo";
+
+import styles from "./blog-post.module.scss";
 
 export const pageQuery = graphql`
     query($path: String!) {
@@ -11,6 +14,34 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
+                images {
+                    caption
+                    src {
+                        childImageSharp {
+                            fluid(maxWidth: 800) {
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
+                }
+                path
+                title
+            }
+        }
+        mdx(frontmatter: { path: { eq: $path } }) {
+            body
+            frontmatter {
+                date(formatString: "MMMM DD, YYYY")
+                images {
+                    caption
+                    src {
+                        childImageSharp {
+                            fluid(maxWidth: 800) {
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
+                }
                 path
                 title
             }
@@ -19,14 +50,15 @@ export const pageQuery = graphql`
 `;
 
 const BlogPost = ({ data }) => {
+    const { markdownRemark, mdx } = data;
+    const actualData = markdownRemark || mdx;
     const {
-        markdownRemark: {
-            frontmatter: { date, title },
-            html,
-        },
-    } = data;
+        body,
+        frontmatter: { date, images, title },
+        html,
+    } = actualData;
     return (
-        <Layout>
+        <Layout contentClassName={styles.container}>
             <SEO
                 title={`Blog - ${title}`}
                 keywords={["gatsby", "application", "react"]}
@@ -34,7 +66,11 @@ const BlogPost = ({ data }) => {
             <div>
                 <h1>{title}</h1>
                 <h2>{date}</h2>
-                <div dangerouslySetInnerHTML={{ __html: html }} />
+                {body ? (
+                    <MDXRenderer images={images}>{body}</MDXRenderer>
+                ) : (
+                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                )}
             </div>
         </Layout>
     );

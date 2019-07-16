@@ -9,7 +9,8 @@ const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 exports.onCreateNode = ({ actions, getNode, node }) => {
     const { createNodeField } = actions;
 
-    if (node && node.internal && node.internal.type === "MarkdownRemark") {
+    const markdownTypes = ["MarkdownRemark", "Mdx"];
+    if (node && node.internal && markdownTypes.includes(node.internal.type)) {
         const parent = getNode(node.parent);
         createNodeField({
             node,
@@ -30,7 +31,20 @@ exports.createPages = ({ actions, graphql }) => {
 
     return graphql(`
         {
-            allMarkdownRemark(
+            markdownPages: allMarkdownRemark(
+                filter: { fields: { collection: { eq: "blog" } } }
+                sort: { order: DESC, fields: [frontmatter___date] }
+                limit: 1000
+            ) {
+                edges {
+                    node {
+                        frontmatter {
+                            path
+                        }
+                    }
+                }
+            }
+            mdxPages: allMdx(
                 filter: { fields: { collection: { eq: "blog" } } }
                 sort: { order: DESC, fields: [frontmatter___date] }
                 limit: 1000
@@ -49,7 +63,15 @@ exports.createPages = ({ actions, graphql }) => {
             return Promise.reject(result.errors);
         }
 
-        return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        result.data.markdownPages.edges.forEach(({ node }) => {
+            createPage({
+                path: node.frontmatter.path,
+                component: blogPostTemplate,
+                context: {},
+            });
+        });
+
+        result.data.mdxPages.edges.forEach(({ node }) => {
             createPage({
                 path: node.frontmatter.path,
                 component: blogPostTemplate,
