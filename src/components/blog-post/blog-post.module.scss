@@ -8,3 +8,61 @@
         padding: 0 $spacer-5;
     }
 }
+
+.header {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+}
+
+.homeButton {
+    display: inline-block;
+    margin-left: $spacer-1;
+    min-width: 110px;
+}
+
+.marginlessLine {
+    margin-bottom: 0;
+}
+
+.blogDescription {
+    font-style: italic;
+}
+
+.contentContainer {
+    border-top: 1px solid $yellow-60;
+    padding-top: $spacer-1;
+}
+
+.prevNextContainer {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.prevItem,
+.nextItem {
+    align-items: center;
+    display: flex;
+}
+
+.prevItem {
+    line-height: 20px;
+    margin-right: $spacer-1;
+
+    svg {
+        height: 22px;
+        margin-right: $spacer-0;
+    }
+}
+
+.nextItem {
+    line-height: 20px;
+    margin-left: $spacer-1;
+
+    svg {
+        height: 22px;
+        margin-left: $spacer-0;
+    }
+}

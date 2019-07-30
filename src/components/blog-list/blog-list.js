@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
+import classNames from "classnames";
 
 import { mergeAndSortBlogEdges } from "../../utils/blog";
 import Layout from "../layout";
@@ -26,7 +27,7 @@ export const query = graphql`
                     frontmatter {
                         path
                         title
-                        date
+                        date(formatString: "MMMM DD, YYYY")
                     }
                     excerpt(pruneLength: 350)
                     timeToRead
@@ -44,7 +45,7 @@ export const query = graphql`
                     frontmatter {
                         path
                         title
-                        date
+                        date(formatString: "MMMM DD, YYYY")
                     }
                     excerpt(pruneLength: 350)
                     timeToRead
@@ -54,10 +55,6 @@ export const query = graphql`
     }
 `;
 
-//JTM
-// - h1 is too wide, something's hapnin here
-// - format date to readable string
-// - h1 tag on page (and post)
 const BlogList = ({ data, pageContext }) => {
     const { markdownPages, mdxPages } = data;
     const allEdges = mergeAndSortBlogEdges(markdownPages, mdxPages);
@@ -65,18 +62,34 @@ const BlogList = ({ data, pageContext }) => {
     return (
         <Layout contentClassName={styles.container}>
             <SEO title="Blog" keywords={["gatsby", "application", "react"]} />
+            <h1>Blog Home</h1>
+
             {allEdges.map(({ node }) => (
-                <React.Fragment key={node.frontmatter.path}>
+                <div
+                    className={styles.postContainer}
+                    key={node.frontmatter.path}
+                >
                     <Link to={node.frontmatter.path}>
-                        <h1>{node.frontmatter.title}</h1>
+                        <h2 className={styles.marginlessLine}>
+                            {node.frontmatter.title}
+                        </h2>
                     </Link>
-                    <p>{node.frontmatter.date}</p>
-                    <p>Estimated Time to Read: {node.timeToRead} minutes</p>
+                    <p
+                        className={classNames(
+                            styles.blogDescription,
+                            styles.marginlessLine,
+                        )}
+                    >
+                        {node.frontmatter.date}
+                    </p>
+                    <p className={styles.blogDescription}>
+                        Estimated Time to Read: {node.timeToRead} minutes
+                    </p>
                     <p>{node.excerpt}</p>
-                </React.Fragment>
+                </div>
             ))}
 
-            <ul>
+            <ul className={styles.pageList}>
                 {Array.from({ length: pageContext.numPages }).map((item, i) => {
                     const index = i + 1;
                     const link = index === 1 ? "/blog" : `/blog/page/${index}`;
@@ -84,7 +97,9 @@ const BlogList = ({ data, pageContext }) => {
                     return (
                         <li key={i}>
                             {pageContext.currentPage === index ? (
-                                <span>{index}</span>
+                                <span className={styles.currentPage}>
+                                    {index}
+                                </span>
                             ) : (
                                 <a href={link}>{index}</a>
                             )}
