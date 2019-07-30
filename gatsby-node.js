@@ -5,6 +5,10 @@
  */
 const path = require("path");
 const { fmImagesToRelative } = require("gatsby-remark-relative-images");
+const {
+    getNumberOfPostsOfType,
+    mergeAndSortBlogEdges,
+} = require("./src/utils/blog.js");
 
 exports.onCreateNode = ({ actions, getNode, node }) => {
     const { createNodeField } = actions;
@@ -28,6 +32,9 @@ exports.createPages = ({ actions, graphql }) => {
     const blogPostTemplate = path.resolve(
         "src/components/blog-post/blog-post.js",
     );
+    const blogListLayout = path.resolve(
+        "src/components/blog-list/blog-list.js",
+    );
 
     return graphql(`
         {
@@ -38,7 +45,9 @@ exports.createPages = ({ actions, graphql }) => {
             ) {
                 edges {
                     node {
+                        id
                         frontmatter {
+                            date
                             path
                         }
                     }
@@ -51,7 +60,9 @@ exports.createPages = ({ actions, graphql }) => {
             ) {
                 edges {
                     node {
+                        id
                         frontmatter {
+                            date
                             path
                         }
                     }
@@ -62,6 +73,43 @@ exports.createPages = ({ actions, graphql }) => {
         if (result.errors) {
             return Promise.reject(result.errors);
         }
+
+        const { markdownPages, mdxPages } = result.data;
+        const allEdges = mergeAndSortBlogEdges(markdownPages, mdxPages);
+        const totalResults = allEdges.length;
+        const postsPerPage = 10;
+        const numPages = Math.ceil(totalResults / postsPerPage);
+
+        let markdownPostsAccountedFor = 0;
+        let mdxPostsAccountedFor = 0;
+        Array.from({ length: numPages }).forEach((_, i) => {
+            const currentPagePosts = allEdges.slice(
+                i * postsPerPage,
+                (i + 1) * postsPerPage,
+            );
+            const markdownPostsInPage = getNumberOfPostsOfType(
+                currentPagePosts,
+                markdownPages,
+            );
+            const mdxPostsInPage = getNumberOfPostsOfType(
+                currentPagePosts,
+                mdxPages,
+            );
+            createPage({
+                path: i === 0 ? "/blog" : `/blog/page/${i + 1}`,
+                component: blogListLayout,
+                context: {
+                    markdownLimit: markdownPostsInPage,
+                    mdxLimit: mdxPostsInPage,
+                    markdownSkip: markdownPostsAccountedFor,
+                    mdxSkip: mdxPostsAccountedFor,
+                    currentPage: i + 1,
+                    numPages,
+                },
+            });
+            markdownPostsAccountedFor += markdownPostsInPage;
+            mdxPostsAccountedFor += mdxPostsInPage;
+        });
 
         result.data.markdownPages.edges.forEach(({ node }) => {
             createPage({
