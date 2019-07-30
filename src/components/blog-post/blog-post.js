@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import PropTypes from "prop-types";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
@@ -27,6 +27,7 @@ export const pageQuery = graphql`
                 path
                 title
             }
+            timeToRead
         }
         mdx(frontmatter: { path: { eq: $path } }) {
             body
@@ -45,18 +46,22 @@ export const pageQuery = graphql`
                 path
                 title
             }
+            timeToRead
         }
     }
 `;
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, pageContext }) => {
     const { markdownRemark, mdx } = data;
     const actualData = markdownRemark || mdx;
     const {
         body,
         frontmatter: { date, images, title },
         html,
+        timeToRead,
     } = actualData;
+    const { prev, next } = pageContext;
+
     return (
         <Layout contentClassName={styles.container}>
             <SEO
@@ -66,10 +71,22 @@ const BlogPost = ({ data }) => {
             <div>
                 <h1>{title}</h1>
                 <h2>{date}</h2>
+                <p>Estimated Time to Read: {timeToRead} minutes</p>
                 {body ? (
                     <MDXRenderer images={images}>{body}</MDXRenderer>
                 ) : (
                     <div dangerouslySetInnerHTML={{ __html: html }} />
+                )}
+                {prev && (
+                    <Link to={prev.node.frontmatter.path}>
+                        {"<"} {prev.node.frontmatter.title}
+                    </Link>
+                )}
+
+                {next && (
+                    <Link to={next.node.frontmatter.path}>
+                        {next.node.frontmatter.title} {">"}
+                    </Link>
                 )}
             </div>
         </Layout>
@@ -78,6 +95,7 @@ const BlogPost = ({ data }) => {
 
 BlogPost.propTypes = {
     data: PropTypes.object, //JTM beef up
+    pageContext: PropTypes.object,
 };
 
 export default BlogPost;

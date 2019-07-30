@@ -49,6 +49,7 @@ exports.createPages = ({ actions, graphql }) => {
                         frontmatter {
                             date
                             path
+                            title
                         }
                     }
                 }
@@ -64,6 +65,7 @@ exports.createPages = ({ actions, graphql }) => {
                         frontmatter {
                             date
                             path
+                            title
                         }
                     }
                 }
@@ -111,19 +113,17 @@ exports.createPages = ({ actions, graphql }) => {
             mdxPostsAccountedFor += mdxPostsInPage;
         });
 
-        result.data.markdownPages.edges.forEach(({ node }) => {
-            createPage({
-                path: node.frontmatter.path,
-                component: blogPostTemplate,
-                context: {},
-            });
-        });
+        allEdges.forEach(({ node }, index) => {
+            const prev = allEdges[index - 1];
+            const next = allEdges[index + 1];
 
-        result.data.mdxPages.edges.forEach(({ node }) => {
             createPage({
                 path: node.frontmatter.path,
                 component: blogPostTemplate,
-                context: {},
+                context: {
+                    prev: prev,
+                    next: next,
+                },
             });
         });
     });

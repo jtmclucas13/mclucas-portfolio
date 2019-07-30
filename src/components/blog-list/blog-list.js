@@ -28,6 +28,8 @@ export const query = graphql`
                         title
                         date
                     }
+                    excerpt(pruneLength: 350)
+                    timeToRead
                 }
             }
         }
@@ -44,6 +46,8 @@ export const query = graphql`
                         title
                         date
                     }
+                    excerpt(pruneLength: 350)
+                    timeToRead
                 }
             }
         }
@@ -52,8 +56,7 @@ export const query = graphql`
 
 //JTM
 // - h1 is too wide, something's hapnin here
-// - propTypes
-// - excerpt
+// - format date to readable string
 // - h1 tag on page (and post)
 const BlogList = ({ data, pageContext }) => {
     const { markdownPages, mdxPages } = data;
@@ -68,6 +71,8 @@ const BlogList = ({ data, pageContext }) => {
                         <h1>{node.frontmatter.title}</h1>
                     </Link>
                     <p>{node.frontmatter.date}</p>
+                    <p>Estimated Time to Read: {node.timeToRead} minutes</p>
+                    <p>{node.excerpt}</p>
                 </React.Fragment>
             ))}
 
@@ -102,6 +107,8 @@ BlogList.propTypes = {
                             path: PropTypes.string,
                             title: PropTypes.string,
                         }),
+                        excerpt: PropTypes.string,
+                        timeToRead: PropTypes.number,
                     }),
                 }),
             ),
@@ -115,6 +122,8 @@ BlogList.propTypes = {
                             path: PropTypes.string,
                             title: PropTypes.string,
                         }),
+                        excerpt: PropTypes.string,
+                        timeToRead: PropTypes.number,
                     }),
                 }),
             ),
