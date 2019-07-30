@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 
-import SvgSafeImage from "../svg-safe-image/svg-safe-image";
+import BasicImage from "../basic-image/basic-image";
 
 import styles from "./theater-portfolio-section.module.scss";
 
@@ -28,28 +28,20 @@ const TheaterPortfolioSection = ({
         company === venue
             ? `${venue} - ${location}`
             : `${company}, ${venue} - ${location}`;
+    const bannerText = premiere ? `${premiere} Premiere` : null;
 
     return (
         <div className={containerClasses}>
             <div className={styles.imageSectionContainer}>
-                <div className={styles.imageContainer}>
-                    <SvgSafeImage
-                        alt={`${projectName} photo`}
-                        childImageSharp={images[0].src.childImageSharp}
-                        extension={images[0].src.extension}
-                        publicURL={images[0].src.publicURL}
-                    />
-                    {images[0].caption && (
-                        <div className={styles.captionContainer}>
-                            {images[0].caption}
-                        </div>
-                    )}
-                    {premiere && (
-                        <div className={styles.premiereBanner}>
-                            {premiere} Premiere
-                        </div>
-                    )}
-                </div>
+                <BasicImage
+                    alt={`${projectName} photo`}
+                    bannerText={bannerText}
+                    caption={images[0].caption}
+                    childImageSharp={images[0].src.childImageSharp}
+                    extension={images[0].src.extension}
+                    publicURL={images[0].src.publicURL}
+                    shouldReverse={shouldReverse}
+                />
             </div>
             <div className={styles.textContainer}>
                 <h3>{title}</h3>

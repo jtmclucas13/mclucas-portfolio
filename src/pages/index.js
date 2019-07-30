@@ -47,7 +47,7 @@ const IndexPage = () => (
                                     breakpoints[currentBreakpoint] <
                                     breakpoints.small,
                             })}
-                            to="/"
+                            to="/theater-portfolio"
                         >
                             theater
                         </Link>

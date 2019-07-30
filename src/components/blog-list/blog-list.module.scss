@@ -1,0 +1,55 @@
+@import "../../styles/variables.scss";
+
+.container {
+    overflow: hidden;
+    padding: 0 $spacer-2;
+
+    @include breakpoint(extra-large) {
+        padding: 0 $spacer-5;
+    }
+
+    h1 {
+        margin-bottom: $spacer-2;
+        text-align: center;
+    }
+}
+
+.postContainer {
+    border-bottom: 1px solid $yellow-60;
+    margin-bottom: $spacer-1;
+
+    a {
+        display: inline-block;
+    }
+}
+
+.marginlessLine {
+    margin-bottom: 0;
+}
+
+.blogDescription {
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+    font-style: italic;
+}
+
+.pageList {
+    align-items: center;
+    display: flex;
+    font-family: $font-family-monospace;
+    list-style-type: none;
+    justify-content: center;
+
+    li {
+        margin: 0 $spacer-0;
+
+        span, a {
+            display: inline-block;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.currentPage {
+    color: $yellow-60;
+}
