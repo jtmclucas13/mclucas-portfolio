@@ -3,12 +3,6 @@
 .imageContainer {
     overflow: hidden;
     position: relative;
-
-    .reversed & {
-        @include breakpoint(large) {
-            margin-left: auto;
-        }
-    }
 }
 
 .banner {
@@ -23,11 +17,6 @@
     top: 50px;
     transform: rotate(45deg);
     width: 250px;
-
-    .reversed & {
-        left: -60px;
-        transform: rotate(-45deg);
-    }
 }
 
 .captionContainer {

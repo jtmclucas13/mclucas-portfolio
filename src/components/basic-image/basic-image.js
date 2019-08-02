@@ -7,24 +7,21 @@ import styles from "./basic-image.module.scss";
 
 //JTM
 // - is the maxWidth configuration inside of gatsby-config the reason why the images look shitty in my theater portfolio?
-// - i don't like that this has the reversal logic in it - move out and accept a className prop instead
 // - 404 page
-// - null shows up in theater portfolio company
-// - not all nav items show active
 // - SEO
 const BasicImage = ({
     alt,
+    bannerClass,
     bannerText,
     caption,
     childImageSharp,
+    className,
     extension,
     publicURL,
     isBlogImage,
-    shouldReverse,
 }) => (
     <div
-        className={classnames(styles.imageContainer, {
-            [styles.reversed]: shouldReverse,
+        className={classnames(styles.imageContainer, className, {
             [styles.blogImage]: isBlogImage,
         })}
     >
@@ -35,18 +32,23 @@ const BasicImage = ({
             publicURL={publicURL}
         />
         {caption && <div className={styles.captionContainer}>{caption}</div>}
-        {bannerText && <div className={styles.banner}>{bannerText}</div>}
+        {bannerText && (
+            <div className={classnames(styles.banner, bannerClass)}>
+                {bannerText}
+            </div>
+        )}
     </div>
 );
 
 BasicImage.propTypes = {
     alt: PropTypes.string,
+    bannerClass: PropTypes.string,
     bannerText: PropTypes.string,
     caption: PropTypes.string,
     childImageSharp: PropTypes.object,
+    className: PropTypes.string,
     extension: PropTypes.string,
     publicURL: PropTypes.string,
-    shouldReverse: PropTypes.bool,
 };
 
 export default BasicImage;

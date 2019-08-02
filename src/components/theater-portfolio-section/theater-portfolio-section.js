@@ -25,7 +25,7 @@ const TheaterPortfolioSection = ({
     });
     const title = character ? `${projectName} (${character})` : projectName;
     const place =
-        company === venue
+        !company || company === venue
             ? `${venue} - ${location}`
             : `${company}, ${venue} - ${location}`;
     const bannerText = premiere ? `${premiere} Premiere` : null;
@@ -35,12 +35,15 @@ const TheaterPortfolioSection = ({
             <div className={styles.imageSectionContainer}>
                 <BasicImage
                     alt={`${projectName} photo`}
+                    bannerClass={
+                        shouldReverse ? styles.reversedBanner : undefined
+                    }
                     bannerText={bannerText}
                     caption={images[0].caption}
                     childImageSharp={images[0].src.childImageSharp}
+                    className={shouldReverse ? styles.reversedImage : undefined}
                     extension={images[0].src.extension}
                     publicURL={images[0].src.publicURL}
-                    shouldReverse={shouldReverse}
                 />
             </div>
             <div className={styles.textContainer}>
