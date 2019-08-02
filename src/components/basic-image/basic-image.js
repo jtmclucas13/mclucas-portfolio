@@ -6,8 +6,6 @@ import SvgSafeImage from "../svg-safe-image/svg-safe-image";
 import styles from "./basic-image.module.scss";
 
 //JTM
-// - is the maxWidth configuration inside of gatsby-config the reason why the images look shitty in my theater portfolio?
-// - 404 page
 // - SEO
 const BasicImage = ({
     alt,

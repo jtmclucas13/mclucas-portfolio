@@ -116,7 +116,7 @@ const Terminal = ({ className }) => {
                             submitToggleCommand(
                                 seeTheaterInput,
                                 toggleShowThankYou,
-                                () => navigate("/theater"),
+                                () => navigate("/theater-portfolio"),
                             )
                         }
                         ref={seeTheaterInput}
