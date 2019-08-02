@@ -11,7 +11,7 @@ import styles from "./index.module.scss";
 
 const IndexPage = () => (
     <Layout shouldShowFooter={false} shouldShowHeader={false}>
-        <SEO title="Home" keywords={["gatsby", "application", "react"]} />
+        <SEO title="Home" />
         <div className={styles.heroImageContainer}>
             <Image className={styles.heroImage} />
         </div>

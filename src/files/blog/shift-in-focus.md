@@ -1,6 +1,7 @@
 ---
 path: "/blog/a-shift-in-focus"
 date: "2018-10-18"
+description: "Being a full-time software engineer ain't all it's cracked up to be. Seeking balance, I'm placing theater on equal footing with technology."
 title: "A Shift In Focus"
 ---
 I’ve been a multi-hyphenate for several years now. It makes for a bit of a long email signature, but “Theater Artist & Software Engineer” is how I’ve been signing-off ever since I graduated college and decided to pursue dual careers. For the past three years I maintained full-time positions with software companies while rehearsing a few shows a year on nights and weekends. With every passing day, I grew less connected to my artist brain, eventually even switching the labels in this site to put the “Software Engineer” first in the title.

@@ -18,13 +18,14 @@ const ResumeQuery = graphql`
     }
 `;
 
-const ContactPage = () => {
+const ContactPage = ({ location }) => {
     const data = useStaticQuery(ResumeQuery);
     return (
         <Layout>
             <SEO
+                description="Use this page to hire me, to suggest topics for my blog, or just to say hello."
+                path={location.pathname}
                 title="Contact Me"
-                keywords={["gatsby", "application", "react"]}
             />
             <div className={styles.container}>
                 <form

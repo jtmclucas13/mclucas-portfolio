@@ -3,7 +3,8 @@ module.exports = {
         title: "Joshua McLucas - Theater Artist and Software Engineer",
         description:
             "The web home of Philadelphia-based theater artist and software engineer, Joshua McLucas.",
-        author: "@jtmclucas13",
+        author: "Joshua McLucas",
+        authorHandle: "@jtmclucas13",
         siteUrl: "https://www.joshuamclucas.com",
         menuLinks: [
             {

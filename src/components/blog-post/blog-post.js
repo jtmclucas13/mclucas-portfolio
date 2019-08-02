@@ -59,7 +59,7 @@ const BlogPost = ({ data, pageContext }) => {
     const actualData = markdownRemark || mdx;
     const {
         body,
-        frontmatter: { date, images, title },
+        frontmatter: { date, description, images, path, title },
         html,
         timeToRead,
     } = actualData;
@@ -68,8 +68,9 @@ const BlogPost = ({ data, pageContext }) => {
     return (
         <Layout contentClassName={styles.container}>
             <SEO
+                description={description}
+                path={path}
                 title={`Blog - ${title}`}
-                keywords={["gatsby", "application", "react"]}
             />
             <div>
                 <header className={styles.header}>
