@@ -10,7 +10,7 @@ import Image from "../components/image";
 import styles from "./index.module.scss";
 
 const IndexPage = () => (
-    <Layout shouldShowHeader={false}>
+    <Layout shouldShowFooter={false} shouldShowHeader={false}>
         <SEO title="Home" keywords={["gatsby", "application", "react"]} />
         <div className={styles.heroImageContainer}>
             <Image className={styles.heroImage} />

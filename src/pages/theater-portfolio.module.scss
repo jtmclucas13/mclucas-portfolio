@@ -28,6 +28,11 @@
             margin-bottom: 0;
         }
     }
+
+    &:last-child {
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
 }
 
 :global(.fadeIn-appear) {
