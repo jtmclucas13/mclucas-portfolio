@@ -6,7 +6,6 @@ import SvgSafeImage from "../svg-safe-image/svg-safe-image";
 import styles from "./basic-image.module.scss";
 
 //JTM
-// - analytics
 // - favicon
 // - accessibility audit
 // - launch!
