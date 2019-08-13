@@ -38,14 +38,17 @@
     right: -300px;
     top: 0;
     width: 300px;
+    visibility: hidden;
     z-index: $nav-drawer-z;
 
-    transition: right 0.3s ease-in-out;
+    transition: right 0.3s ease-in-out, visibility 0.1s 0.3s;
 }
 
 .isOpen {
     & .slideout {
         right: 0;
+        visibility: visible;
+        transition: right 0.3s ease-in-out;
     }
 
     & .overlay {
@@ -75,6 +78,7 @@
     &:focus {
         color: $grey-50;
         outline: none;
+        text-decoration: underline;
     }
 }
 

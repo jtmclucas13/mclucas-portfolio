@@ -55,7 +55,11 @@ const TheaterPortfolioSection = ({
                     quotes.map(({ author, citation, publication, text }) => (
                         <blockquote cite={citation} key={author}>
                             <p>
-                                <a href={citation} target="_blank">
+                                <a
+                                    href={citation}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     {text}
                                 </a>
                             </p>

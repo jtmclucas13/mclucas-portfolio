@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 import styles from "./terminal-input.module.scss";
 
 const TerminalInput = React.forwardRef(
-    ({ disabled, id, maxLength, name, onEnterKeyUp, type }, ref) => (
+    ({ disabled, id, label, maxLength, name, onEnterKeyUp, type }, ref) => (
         <React.Fragment>
             <input
+                aria-label={label}
                 className={styles.input}
                 disabled={disabled}
                 id={id}
@@ -23,6 +24,7 @@ const TerminalInput = React.forwardRef(
 TerminalInput.propTypes = {
     disabled: PropTypes.bool,
     id: PropTypes.string.isRequired,
+    label: PropTypes.string,
     maxLength: PropTypes.number,
     name: PropTypes.string,
     onEnterKeyUp: PropTypes.func,

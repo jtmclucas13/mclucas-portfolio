@@ -66,6 +66,7 @@ const Terminal = ({ className }) => {
             <TerminalInput
                 disabled={shouldShowSeeStuff}
                 id="hireMeInput"
+                label="Contact Me"
                 maxLength={1}
                 name="hireMeInput"
                 onEnterKeyUp={() =>
@@ -86,6 +87,7 @@ const Terminal = ({ className }) => {
                     <TerminalInput
                         disabled={shouldShowTheater}
                         id="seeWebInput"
+                        label="See Web Portfolio"
                         maxLength={1}
                         name="seeWebInput"
                         onEnterKeyUp={() =>
@@ -110,6 +112,7 @@ const Terminal = ({ className }) => {
                     <TerminalInput
                         disabled={shouldShowThankYou}
                         id="seeTheaterInput"
+                        label="See Theater Portfolio"
                         maxLength={1}
                         name="seeTheaterInput"
                         onEnterKeyUp={() =>
