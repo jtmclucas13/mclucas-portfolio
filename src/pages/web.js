@@ -7,9 +7,13 @@ import Terminal from "../components/terminal/terminal";
 
 import styles from "./web.module.scss";
 
-const WebPage = () => (
+const WebPage = ({ location }) => (
     <Layout contentClassName={styles.container}>
-        <SEO title="Web" keywords={["gatsby", "application", "react"]} />
+        <SEO
+            description="Philadelphia-based software engineer Joshua McLucas gives an overview of his development skills, complete with interactive terminal!"
+            path={location.pathname}
+            title="Web"
+        />
         <Terminal className={styles.terminalContainer} />
         <div className={styles.textContainer}>
             <h1>

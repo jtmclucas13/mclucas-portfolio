@@ -3,16 +3,10 @@
 .imageContainer {
     overflow: hidden;
     position: relative;
-
-    .reversed & {
-        @include breakpoint(large) {
-            margin-left: auto;
-        }
-    }
 }
 
 .banner {
-    background: $yellow-70;
+    background: $yellow-80;
     color: $white;
     left: auto;
     letter-spacing: 0.5px;
@@ -23,11 +17,6 @@
     top: 50px;
     transform: rotate(45deg);
     width: 250px;
-
-    .reversed & {
-        left: -60px;
-        transform: rotate(-45deg);
-    }
 }
 
 .captionContainer {

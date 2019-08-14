@@ -4,6 +4,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-bottom: $spacer-2;
     justify-content: center;
 
     @include breakpoint(medium) {

@@ -3,13 +3,16 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, path, title }) {
     return (
         <StaticQuery
             query={detailsQuery}
             render={data => {
                 const metaDescription =
                     description || data.site.siteMetadata.description;
+                const canonicalUrl = path
+                    ? `${data.site.siteMetadata.siteUrl}${path}`
+                    : data.site.siteMetadata.siteUrl;
                 return (
                     <Helmet
                         htmlAttributes={{
@@ -27,6 +30,10 @@ function SEO({ description, lang, meta, keywords, title }) {
                                 content: title,
                             },
                             {
+                                property: "og:url",
+                                content: canonicalUrl,
+                            },
+                            {
                                 property: "og:description",
                                 content: metaDescription,
                             },
@@ -35,12 +42,20 @@ function SEO({ description, lang, meta, keywords, title }) {
                                 content: "website",
                             },
                             {
+                                property: "fb:admins",
+                                content: "1071761415",
+                            },
+                            {
                                 name: "twitter:card",
                                 content: "summary",
                             },
                             {
+                                name: "twitter:site",
+                                content: data.site.siteMetadata.authorHandle,
+                            },
+                            {
                                 name: "twitter:creator",
-                                content: data.site.siteMetadata.author,
+                                content: data.site.siteMetadata.authorHandle,
                             },
                             {
                                 name: "twitter:title",
@@ -87,9 +102,11 @@ const detailsQuery = graphql`
     query DefaultSEOQuery {
         site {
             siteMetadata {
+                authorHandle
                 title
                 description
                 author
+                siteUrl
             }
         }
     }

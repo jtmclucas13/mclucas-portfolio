@@ -21,15 +21,40 @@ const NavLinksQuery = graphql`
 
 const MainNav = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isHamburgerFocused, setIsHamburgerFocused] = useState(false);
     const data = useStaticQuery(NavLinksQuery);
 
     function toggleIsOpen() {
         setIsOpen(!isOpen);
     }
 
+    function handleKeyDown(e) {
+        const spaceKey = 32;
+        const enterKey = 13;
+        const keyPressed = e.keyCode;
+        const toggleKeys = [spaceKey, enterKey];
+        if (toggleKeys.includes(keyPressed)) {
+            setIsOpen(!isOpen);
+        }
+    }
+
     return (
         <div className={classnames({ [styles.isOpen]: isOpen })}>
             <div className={styles.overlay} onClick={toggleIsOpen} />
+            <span
+                className={styles.hamburger}
+                onKeyDown={handleKeyDown}
+                onFocus={() => setIsHamburgerFocused(true)}
+                onBlur={() => setIsHamburgerFocused(false)}
+                tabIndex={0}
+            >
+                <HamburgerMenu
+                    isOpen={isOpen}
+                    menuClicked={toggleIsOpen}
+                    color={isOpen ? grey50 : purple50}
+                    strokeWidth={isHamburgerFocused ? 4 : undefined}
+                />
+            </span>
             <div className={styles.slideout}>
                 <div className={styles.navContainer}>
                     <nav>
@@ -52,13 +77,6 @@ const MainNav = () => {
                     © {new Date().getFullYear()}, Joshua McLucas
                 </footer>
             </div>
-            <span className={styles.hamburger}>
-                <HamburgerMenu
-                    isOpen={isOpen}
-                    menuClicked={toggleIsOpen}
-                    color={isOpen ? grey50 : purple50}
-                />
-            </span>
         </div>
     );
 };

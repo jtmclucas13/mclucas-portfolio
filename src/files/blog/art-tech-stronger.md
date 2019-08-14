@@ -1,6 +1,7 @@
 ---
 path: "/blog/art-and-tech-stronger-together"
 date: "2016-09-02"
+description: "The two sectors of my life and career may seem unrelated, but in fact, art and technology may hold the keys that unlock each other."
 title: "Art + Tech: Stronger Together"
 ---
 There are few visitors to my website who are interested in both sides of what I do. Even I have, historically, not been interested in both software engineering and theater in the same sentence. The closest I’ve come to a synthesis of the two disciplines is making websites for [[redacted]](http://www.redactedtheater.org) and being asked jokingly to act out my favorite JavaScript function in an interview. Lately, however, I’ve been desperately seeking a way to meld the two, clamoring for some way for art and technology to synthesize.

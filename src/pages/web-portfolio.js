@@ -42,14 +42,15 @@ const WebPortfolioQuery = graphql`
     }
 `;
 
-const WebPortfolio = () => {
+const WebPortfolio = ({ location }) => {
     const sections = useStaticQuery(WebPortfolioQuery).sections.edges;
 
     return (
         <Layout contentClassName={styles.container}>
             <SEO
+                description="Philadelphia-based software engineer Joshua McLucas highlights his biggest and most exciting development projects."
+                path={location.pathname}
                 title="Portfolio - Web"
-                keywords={["gatsby", "application", "react"]}
             />
             <h1>Selected Web Experience</h1>
             <h2>(In reverse chronological order, most recent first)</h2>

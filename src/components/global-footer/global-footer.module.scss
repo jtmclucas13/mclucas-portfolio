@@ -1,0 +1,21 @@
+@import "../../styles/variables.scss";
+
+.footerContainer {
+    align-items: center;
+    background-color: $purple-50;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    min-height: 100px;
+    padding: 0 $spacer-1;
+    position: absolute;
+    width: 100%;
+
+    @include breakpoint(small) {
+        padding: 0 $spacer-2;
+    }
+
+    a {
+        color: $white;
+    }
+}

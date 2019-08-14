@@ -3,7 +3,8 @@ module.exports = {
         title: "Joshua McLucas - Theater Artist and Software Engineer",
         description:
             "The web home of Philadelphia-based theater artist and software engineer, Joshua McLucas.",
-        author: "@jtmclucas13",
+        author: "Joshua McLucas",
+        authorHandle: "@jtmclucas13",
         siteUrl: "https://www.joshuamclucas.com",
         menuLinks: [
             {
@@ -29,6 +30,12 @@ module.exports = {
         ],
     },
     plugins: [
+        {
+            resolve: "gatsby-plugin-google-analytics",
+            options: {
+                trackingId: "UA-42380144-1",
+            },
+        },
         "gatsby-transformer-sharp",
         "gatsby-plugin-sharp",
         "gatsby-plugin-sass",
@@ -107,7 +114,7 @@ module.exports = {
                 background_color: "#663399",
                 theme_color: "#663399",
                 display: "minimal-ui",
-                icon: "src/images/gatsby-icon.png", // This path is relative to the root of the site.
+                icon: "src/images/favicon.png",
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality

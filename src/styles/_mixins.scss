@@ -15,7 +15,11 @@
 
 @mixin portfolioLayout {
     overflow: hidden;
-    padding: 0 $spacer-2;
+    padding: 0 $spacer-1;
+
+    @include breakpoint(small) {
+        padding: 0 $spacer-2;
+    }
 
     @include breakpoint(extra-large) {
         padding: 0 $spacer-5;

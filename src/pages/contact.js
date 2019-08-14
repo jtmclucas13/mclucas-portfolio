@@ -18,13 +18,14 @@ const ResumeQuery = graphql`
     }
 `;
 
-const ContactPage = () => {
+const ContactPage = ({ location }) => {
     const data = useStaticQuery(ResumeQuery);
     return (
         <Layout>
             <SEO
+                description="Use this page to hire me, to suggest topics for my blog, or just to say hello."
+                path={location.pathname}
                 title="Contact Me"
-                keywords={["gatsby", "application", "react"]}
             />
             <div className={styles.container}>
                 <form
@@ -63,10 +64,16 @@ const ContactPage = () => {
                         </a>
                     </h2>
                     <div className={styles.socialContainer}>
-                        <a href="https://github.com/jtmclucas13">
+                        <a
+                            href="https://github.com/jtmclucas13"
+                            aria-label="LinkedIn"
+                        >
                             <FaLinkedin className={styles.socialLogo} />
                         </a>
-                        <a href="https://www.linkedin.com/in/joshuamclucas/">
+                        <a
+                            href="https://www.linkedin.com/in/joshuamclucas/"
+                            aria-label="GitHub"
+                        >
                             <FaGithub className={styles.socialLogo} />
                         </a>
                     </div>

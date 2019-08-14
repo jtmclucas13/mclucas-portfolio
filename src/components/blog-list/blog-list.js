@@ -55,13 +55,17 @@ export const query = graphql`
     }
 `;
 
-const BlogList = ({ data, pageContext }) => {
+const BlogList = ({ data, location, pageContext }) => {
     const { markdownPages, mdxPages } = data;
     const allEdges = mergeAndSortBlogEdges(markdownPages, mdxPages);
 
     return (
         <Layout contentClassName={styles.container}>
-            <SEO title="Blog" keywords={["gatsby", "application", "react"]} />
+            <SEO
+                description="Joshua McLucas writes articles on art, technology, theater, and everything in between."
+                path={location.pathname}
+                title="Blog"
+            />
             <h1>Blog Home</h1>
 
             {allEdges.map(({ node }) => (

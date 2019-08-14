@@ -69,7 +69,7 @@ const useTheaterSections = () => {
     return [activeFilter, activeSections, setActiveFilter];
 };
 
-const TheaterPortfolio = () => {
+const TheaterPortfolio = ({ location }) => {
     const [
         activeFilter,
         activeSections,
@@ -79,8 +79,9 @@ const TheaterPortfolio = () => {
     return (
         <Layout contentClassName={styles.container}>
             <SEO
+                description="Philadelphia-based actor-director Joshua McLucas shows off the coolest photos and best reviews from his theater career."
+                path={location.pathname}
                 title="Portfolio - Theater"
-                keywords={["gatsby", "application", "react"]}
             />
             <h1>Selected Theater Experience</h1>
             <h2>(In reverse chronological order, most recent first)</h2>
