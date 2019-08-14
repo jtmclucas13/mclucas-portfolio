@@ -1,7 +1,7 @@
 import Typography from "typography";
 import grandViewTheme from "typography-theme-grand-view";
 
-import { yellow50, yellow70, purple50 } from "./_colors.scss";
+import { yellow50, yellow70, purple50 } from "./_colors.module.scss";
 
 grandViewTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     a: {

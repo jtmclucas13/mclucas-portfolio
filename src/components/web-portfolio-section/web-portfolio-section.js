@@ -63,7 +63,7 @@ const WebPortfolioSection = ({
                             key={tool.name}
                             alt={tool.alt}
                             className={styles.icon}
-                            id={`${projectName}-${name}`}
+                            idPrefix={projectName}
                             name={tool.name}
                             tooltip={tool.tooltip}
                         />

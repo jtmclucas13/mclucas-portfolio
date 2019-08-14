@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import ReactBreakpoints from "react-breakpoints";
-import * as breakpoints from "../styles/_breakpoints.scss";
+import * as breakpoints from "../styles/_breakpoints.module.scss";
 
 import GlobalHeader from "./global-header/global-header";
 import GlobalFooter from "./global-footer/global-footer";

@@ -4,7 +4,7 @@ import { useStaticQuery, Link, graphql } from "gatsby";
 import classnames from "classnames";
 
 import styles from "./main-nav.module.scss";
-import { grey50, purple50 } from "../../styles/_colors.scss";
+import { grey50, purple50 } from "../../styles/_colors.module.scss";
 
 const NavLinksQuery = graphql`
     query NavLinksQuery {

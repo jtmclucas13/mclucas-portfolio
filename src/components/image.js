@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { small } from "../styles/_breakpoints.scss";
+import { small } from "../styles/_breakpoints.module.scss";
 import Img from "gatsby-image";
 import MediaQuery from "react-responsive";
 

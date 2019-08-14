@@ -18,7 +18,7 @@ const AllIconsQuery = graphql`
     }
 `;
 
-const Icon = ({ alt, className, id, name, tooltip }) => {
+const Icon = ({ alt, className, idPrefix, name, tooltip }) => {
     const data = useStaticQuery(AllIconsQuery);
     const matchedFile = useMemo(
         () => data.allFile.edges.find(edge => edge.node.name === name),
@@ -38,12 +38,12 @@ const Icon = ({ alt, className, id, name, tooltip }) => {
                 childImageSharp={fluidData.childImageSharp}
                 className={className}
                 data-tip
-                data-for={`${id}-${name}-tooltip`}
+                data-for={`${idPrefix}-${name}-tooltip`}
                 extension={fluidData.extension}
                 publicURL={fluidData.publicURL}
             />
             {tooltip && (
-                <ReactTooltip id={`${id}-${name}-tooltip`} effect="solid">
+                <ReactTooltip id={`${idPrefix}-${name}-tooltip`} effect="solid">
                     {tooltip}
                 </ReactTooltip>
             )}
@@ -54,7 +54,7 @@ const Icon = ({ alt, className, id, name, tooltip }) => {
 Icon.propTypes = {
     alt: PropTypes.string,
     className: PropTypes.string,
-    id: PropTypes.string,
+    idPrefix: PropTypes.string,
     name: PropTypes.string,
     tooltip: PropTypes.string,
 };
