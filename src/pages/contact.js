@@ -31,7 +31,7 @@ const ContactPage = ({ location }) => {
                 <form
                     className={styles.form}
                     data-netlify="true"
-                    data-netlify-recaptcha="true"
+                    data-netlify-honeypot="bot-field"
                     name="contact"
                     action="/success"
                     method="POST"
@@ -56,7 +56,17 @@ const ContactPage = ({ location }) => {
                         label="Message"
                         name="name"
                     />
-                    <div data-netlify-recaptcha="true"></div>
+                    <input type="hidden" name="form-name" value="contact" />
+                    <input
+                        name="bot-field"
+                        style={{
+                            visibility: "hidden",
+                            height: 0,
+                            margin: 0,
+                            padding: 0,
+                            border: 0,
+                        }}
+                    />
                     <BasicButton type="submit">Send Email</BasicButton>
                 </form>
                 <div className={styles.rightSide}>
