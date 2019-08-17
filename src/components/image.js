@@ -1,8 +1,9 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { small } from "../styles/_breakpoints.module.scss";
 import Img from "gatsby-image";
-import MediaQuery from "react-responsive";
+import classnames from "classnames";
+
+import styles from "./image.module.scss";
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -37,24 +38,20 @@ const ImageQuery = graphql`
 const Image = ({ className }) => {
     const data = useStaticQuery(ImageQuery);
     return (
-        <MediaQuery minWidth={small}>
-            {matches => {
-                let src = data.heroImageSmall.childImageSharp.fluid;
-
-                if (matches) {
-                    src = data.heroImage.childImageSharp.fluid;
-                }
-
-                return (
-                    <Img
-                        className={className}
-                        critical={true}
-                        fluid={src}
-                        alt="Joshua McLucas headshot"
-                    />
-                );
-            }}
-        </MediaQuery>
+        <React.Fragment>
+            <Img
+                className={classnames(styles.smallImage, className)}
+                loading="eager"
+                fluid={data.heroImageSmall.childImageSharp.fluid}
+                alt="Joshua McLucas headshot"
+            />
+            <Img
+                className={classnames(styles.largeImage, className)}
+                loading="eager"
+                fluid={data.heroImage.childImageSharp.fluid}
+                alt="Joshua McLucas headshot"
+            />
+        </React.Fragment>
     );
 };
 

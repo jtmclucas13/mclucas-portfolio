@@ -1,7 +1,7 @@
 import Typography from "typography";
 import grandViewTheme from "typography-theme-grand-view";
 
-import { yellow50, yellow70, purple50 } from "./_colors.module.scss";
+import { purple50 } from "./_colors.module.scss";
 
 grandViewTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     a: {
@@ -11,12 +11,6 @@ grandViewTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     "a:hover": {
         color: purple50,
         textDecoration: "underline",
-    },
-    "a.light": {
-        color: yellow70,
-    },
-    "a.inverted": {
-        color: yellow50,
     },
     "a.noUnderline": {
         textDecoration: "none",

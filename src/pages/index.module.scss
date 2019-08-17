@@ -129,3 +129,11 @@
         font-size: 2rem;
     }
 }
+
+.heroTextLink {
+    color: $yellow-50;
+
+    @include breakpoint(small) {
+        color: $yellow-70;
+    }
+}

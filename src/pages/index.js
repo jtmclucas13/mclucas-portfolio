@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Media } from "react-breakpoints";
-import classnames from "classnames";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -20,55 +18,21 @@ const IndexPage = () => (
                 <h1 className={styles.heroHeader}>Hi!</h1>
                 <h2 className={styles.heroSubheader}>My name's Josh.</h2>
             </div>
-            <Media>
-                {({ breakpoints, currentBreakpoint }) => (
-                    <p className={styles.heroBody}>
-                        I make{" "}
-                        <Link
-                            className={classnames({
-                                light:
-                                    breakpoints[currentBreakpoint] >=
-                                    breakpoints.small,
-                                inverted:
-                                    breakpoints[currentBreakpoint] <
-                                    breakpoints.small,
-                            })}
-                            to="/web"
-                        >
-                            websites
-                        </Link>{" "}
-                        and{" "}
-                        <Link
-                            className={classnames({
-                                light:
-                                    breakpoints[currentBreakpoint] >=
-                                    breakpoints.small,
-                                inverted:
-                                    breakpoints[currentBreakpoint] <
-                                    breakpoints.small,
-                            })}
-                            to="/theater-portfolio"
-                        >
-                            theater
-                        </Link>
-                        .<br /> Every now and then{" "}
-                        <Link
-                            className={classnames({
-                                light:
-                                    breakpoints[currentBreakpoint] >=
-                                    breakpoints.small,
-                                inverted:
-                                    breakpoints[currentBreakpoint] <
-                                    breakpoints.small,
-                            })}
-                            to="/blog"
-                        >
-                            I write
-                        </Link>{" "}
-                        too.
-                    </p>
-                )}
-            </Media>
+            <p className={styles.heroBody}>
+                I make{" "}
+                <Link className={styles.heroTextLink} to="/web">
+                    websites
+                </Link>{" "}
+                and{" "}
+                <Link className={styles.heroTextLink} to="/theater-portfolio">
+                    theater
+                </Link>
+                .<br /> Every now and then{" "}
+                <Link className={styles.heroTextLink} to="/blog">
+                    I write
+                </Link>{" "}
+                too.
+            </p>
         </div>
     </Layout>
 );
