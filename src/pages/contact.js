@@ -33,7 +33,7 @@ const ContactPage = ({ location }) => {
                     data-netlify="true"
                     data-netlify-recaptcha="true"
                     name="contact"
-                    action="/pages/success"
+                    action="/success"
                     method="POST"
                 >
                     <h2>Drop me a line</h2>
