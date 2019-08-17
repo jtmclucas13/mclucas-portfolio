@@ -31,6 +31,7 @@ const ContactPage = ({ location }) => {
                 <form
                     className={styles.form}
                     data-netlify="true"
+                    data-netlify-recaptcha="true"
                     name="contact"
                     action="/pages/success"
                     method="POST"
@@ -55,9 +56,8 @@ const ContactPage = ({ location }) => {
                         label="Message"
                         name="name"
                     />
-                    <BasicButton type="submit">
-                        Send Email (After Captcha)
-                    </BasicButton>
+                    <div data-netlify-recaptcha="true"></div>
+                    <BasicButton type="submit">Send Email</BasicButton>
                 </form>
                 <div className={styles.rightSide}>
                     <h2>
