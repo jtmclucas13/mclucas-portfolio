@@ -1,0 +1,8 @@
+@import "../styles/variables.module.scss";
+
+.container {
+    @include portfolioLayout;
+
+    padding-bottom: $spacer-1 !important;
+    text-align: center;
+}

@@ -30,7 +30,10 @@ const ContactPage = ({ location }) => {
             <div className={styles.container}>
                 <form
                     className={styles.form}
-                    action="https://formspree.io/jtmclucas13@gmail.com"
+                    data-netlify="true"
+                    data-netlify-recaptcha="true"
+                    name="contact"
+                    action="/success"
                     method="POST"
                 >
                     <h2>Drop me a line</h2>
@@ -53,9 +56,8 @@ const ContactPage = ({ location }) => {
                         label="Message"
                         name="name"
                     />
-                    <BasicButton type="submit">
-                        Send Email (After Captcha)
-                    </BasicButton>
+                    <div data-netlify-recaptcha="true"></div>
+                    <BasicButton type="submit">Send Email</BasicButton>
                 </form>
                 <div className={styles.rightSide}>
                     <h2>
