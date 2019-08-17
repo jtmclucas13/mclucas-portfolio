@@ -30,7 +30,9 @@ const ContactPage = ({ location }) => {
             <div className={styles.container}>
                 <form
                     className={styles.form}
-                    action="https://formspree.io/jtmclucas13@gmail.com"
+                    data-netlify="true"
+                    name="contact"
+                    action="/pages/success"
                     method="POST"
                 >
                     <h2>Drop me a line</h2>
