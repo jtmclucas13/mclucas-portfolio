@@ -6,8 +6,8 @@ company: "On The Rocks"
 director: "Elaina Di Monaco"
 images: 
     - {
-        src: "/images/our-ouija-board.jpg",
-        caption: "Photo Credit: Cass Meehan"
+        src: "/images/our-ouija-board-2.jpg",
+        caption: "Photo Credit: Georgia Wescott"
     }
 location: "Philadelphia, PA"
 playwright: "Haygen-Brice Walker"
