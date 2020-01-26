@@ -1,6 +1,6 @@
 ---
 startDate: 2018-06-04
-endDate: null
+endDate: 2019-11-01
 logoImage: "/images/amino-logo.png"
 projectName: "Amino Payments"
 projectLink: "https://www.aminopay.com/"
