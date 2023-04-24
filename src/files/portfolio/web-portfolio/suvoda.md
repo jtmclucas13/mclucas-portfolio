@@ -1,6 +1,6 @@
 ---
 startDate: 2019-11-04
-endDate: null
+endDate: 2020-06-30
 logoImage: "/images/suvoda-logo.png"
 projectName: "Suvoda"
 projectLink: "https://www.suvoda.com/"
