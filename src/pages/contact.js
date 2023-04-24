@@ -77,13 +77,13 @@ const ContactPage = ({ location }) => {
                     </h2>
                     <div className={styles.socialContainer}>
                         <a
-                            href="https://github.com/jtmclucas13"
+                            href="https://www.linkedin.com/in/joshuamclucas/"
                             aria-label="LinkedIn"
                         >
                             <FaLinkedin className={styles.socialLogo} />
                         </a>
                         <a
-                            href="https://www.linkedin.com/in/joshuamclucas/"
+                            href="https://github.com/jtmclucas13"
                             aria-label="GitHub"
                         >
                             <FaGithub className={styles.socialLogo} />
